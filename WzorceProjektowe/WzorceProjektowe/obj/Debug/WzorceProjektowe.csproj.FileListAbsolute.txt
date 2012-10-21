@@ -1,0 +1,7 @@
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.dll
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.pdb
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.dll
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.xml
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.csprojResolveAssemblyReference.cache
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.dll
+C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.pdb
