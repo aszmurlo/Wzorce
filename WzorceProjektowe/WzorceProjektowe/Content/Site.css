@@ -1,33 +1,36 @@
-﻿/*----------------------------------------------------------
-The base color for this template is #5c87b2. If you'd like
-to use a different color start by replacing all instances of
-#5c87b2 with your new color.
-----------------------------------------------------------*/
-body {
+﻿body 
+{
     background: #1f1f1f;
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
 }
 
-a:link {
-    color: #034af3;
+a:link 
+{
+    color: black;
+
     text-decoration: underline;
 }
 
-a:visited {
-    color: #505abc;
+a:visited 
+{
+    color: black;
+    font-weight: bold;
 }
 
-a:hover {
-    color: #1d60ff;
+a:hover 
+{
+    color: black;
     text-decoration: none;
 }
 
-a:active {
-    color: #12eb87;
+a:active 
+{
+    color: black;
 }
 
-p, ul {
+p, ul 
+{
     margin-bottom: 20px;
     line-height: 1.6em;
 }
@@ -35,45 +38,34 @@ p, ul {
 header,
 footer,
 nav,
-section {
+section 
+{
     display: block;
 }
 
-/* HEADINGS   
-----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6 
+{
     font-size: 1.5em;
     color: #000;
 }
 
-h1 {
+h1 
+{
     font-size: 2em;
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
-h2 {
+h2 
+{
     padding: 0 0 10px 0;
 }
 
-h3 {
-    font-size: 1.2em;
-}
+/* PRIMARY LAYOUT ELEMENTS */
 
-h4 {
-    font-size: 1.1em;
-}
-
-h5, h6 {
-    font-size: 1em;
-}
-
-/* PRIMARY LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-
-/* you can specify a greater or lesser percentage for the 
-page width. Or, you can specify an exact pixel width. */
-.page {
+.page 
+{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -82,16 +74,18 @@ page width. Or, you can specify an exact pixel width. */
 header, 
 #header 
 {
-position: float;
-padding:0px;
-margin:auto;
-margin-top:2%;
-background: #333333;
-text-align: left;
-width: 94%;
-border: 3px dashed black;
-border-radius:14px 7px;
-overflow:hidden;
+    position: float;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin: auto;
+    margin-top: 2%;
+    background: #555555;
+    text-align: left;
+    width: 94%;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px #111111;
 }
 
 header h1, 
@@ -110,281 +104,333 @@ header h1,
 menu,
 #menu
 {
-float:left;
-padding-left:1.5%;
-padding-top:0px;
-padding-bottom:1.5%;
-padding-right:1.5%;
-margin-top:2%;
-margin-left:4%;
-background: #555555;
-text-align: left;
-width: 13%;
+    float: left;
+    padding-left: 1.5%;
+    padding-top: 0px;
+    padding-bottom: 1.5%;
+    padding-right: 1.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 4%;
+    background-color: #7b7b7b;
+    text-align: left;
+    width: 13%;
 }
+
 menu
 {
-border: 3px dashed black;
-border-radius:14px 7px;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    box-shadow: 2px 2px 8px #111111;
 }
 
 menu a,
 #menu a
 {
-float:right;
-width:80%;
-height:20%;
-text-decoration:none;
-color:black;
-background-color:#333333;
-padding:3% 10%;
-text-align:center;
-border:2px solid black;
-border-radius:7px;
+    float: right;
+    width: 80%;
+    height: 20%;
+    text-decoration: none;
+    color: black;
+    background-color: #555555;
+    padding: 3% 10%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px #333333;
 }
 
 menu a:hover,
 #menu a:hover
 {
-background-color:#1f1f1f;
--webkit-transition:all .3s ease-in-out;
--moz-transition:all .3s ease-in-out;
--o-transition:all .3s ease-in-out;
-transition:all .3s ease-in-out;
--webkit-transform:scale(1.05);
--moz-transform:scale(1.05);
--o-transform:scale(1.05);
-transform: scale(1.05);
+    background-color: #333333;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 menu a:active,
 #menu a:active
 {
-background-color:#1f1f1f;
+    background-color: #1f1f1f;
 }
 
 
-#main {
-position:float;
-float:right;
-padding-left:1.5%;
-padding-top:0px;
-padding-bottom:1.5%;
-padding-right:1.5%;
-margin-top:2%;
-margin-right:3%;
-margin-bottom:2%;
-background:#7b7b7b;
-text-align:left;
-width:70%;
-border: 3px dashed black;
-border-radius:14px 7px;
+#main 
+{
+    position: float;
+    float: right;
+    padding-left: 1.5%;
+    padding-top: 0px;
+    padding-bottom: 1.5%;
+    padding-right: 1.5%;
+    margin-top: 2%;
+    margin-right: 3%;
+    margin-bottom: 2%;
+    background-color: #7b7b7b;
+    text-align: left;
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    box-shadow: 2px 2px 8px #111111;
 }
 
 footer, 
-#footer {
-clear:both;
-position:relative;
-padding:0px;
-margin:auto;
-margin-top:2%;
-margin-bottom:2%;
-background:#333333;
-text-align:center;
-width:94%;
-border:3px dashed black;
-border-radius:14px 7px;
+#footer 
+{
+    
+    position: relative;
+    padding: 0px;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: #555555;
+    text-align: center;
+    width: 94%;
 }
 
-/* TAB MENU   
-----------------------------------------------------------*/
+footer
+{
+    clear: both;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    box-shadow: 2px 2px 8px #111111;
+}
+
+p#footer
+{
+    margin: 1px;
+}
+
+p#left
+{
+    font-style:italic;
+}
+
 ul#menu
 {
-width:100%;
-padding:0;
-margin:0;
-list-style-type:none;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
 }
 
-ul#menu li {
-display:block;
-padding-top:10%;
-padding-bottom:20%;
+ul#menu li 
+{
+    display: block;
+    padding-top: 10%;
+    padding-bottom: 20%;
 }
 
-/* FORM LAYOUT ELEMENTS   
-----------------------------------------------------------*/
 
-fieldset {
-    border: 1px solid #ddd;
+/* FORMS */
+
+fieldset 
+{
+    border: 1px solid #333333;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
 }
 
-legend {
+legend 
+{
     font-size: 1.2em;
     font-weight: bold;
 }
 
-textarea {
+textarea 
+{
     min-height: 75px;
 }
 
+input
+{
+    background:#ddd;
+}
+
 input[type="text"], 
-input[type="password"] {
-    border: 1px solid #ccc;
+input[type="password"] 
+{
+    border: 1px solid #333333;
     padding: 2px;
     font-size: 1.2em;
     color: #444;
     width: 200px;
 }
 
-select {
-    border: 1px solid #ccc;
+select 
+{
+    border: 1px solid #ddd;
     padding: 2px;
     font-size: 1.2em;
     color: #444;
 }
 
-input[type="submit"] {
+input[type="submit"] 
+{
     font-size: 1.2em;
     padding: 5px;
 }
 
-/* TABLE
-----------------------------------------------------------*/
+/* TABLE */
 
-table {
+table 
+{
     border: solid 1px #e8eef4;
     border-collapse: collapse;
 }
 
-table td {
+table td 
+{
     padding: 5px;
     border: solid 1px #e8eef4;
 }
 
-table th {
+table th 
+{
     padding: 6px 5px;
     text-align: left;
     background-color: #e8eef4;
     border: solid 1px #e8eef4;
 }
 
-/* MISC  
-----------------------------------------------------------*/
-.clear {
+/* MISC */
+.clear 
+{
     clear: both;
 }
 
-.error {
+.error 
+{
     color: Red;
 }
 
 nav, 
-#menucontainer {
+#menucontainer 
+{
     margin-top: 40px;
 }
 
-div#title {
+div#title
+ {
     display: block;
     float: left;
     text-align: left;
 }
 
-#logindisplay {
+#logindisplay 
+{
     font-size: 1.1em;
     display: inline;
     text-align: right;
-    margin: 10px;
-    margin-top:25px;
+    margin-right: 15px;
+    margin-top: 25px;
     color: black;
-    float:right;
+    float: right;
 }
 
-#logindisplay a:link {
-    color: black;
-    text-decoration: underline;
-}
-
-#logindisplay a:visited {
+#logindisplay a:link 
+{
     color: black;
     text-decoration: underline;
 }
 
-#logindisplay a:hover {
+#logindisplay a:visited 
+{
+    color: black;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover 
+{
     color: black;
     text-decoration: none;
 }
 
-#regindisplay {
+#regindisplay 
+{
     font-size: 1.1em;
     display: inline;
     text-align: right;
-    margin:10px;
-    margin-top:25px;
+    margin-right: 15px;
+    margin-top: 25px;
     color: black;
-    float:right;
+    float: right;
 }
 
-#regindisplay a:link {
-    color: black;
-    text-decoration: underline;
-}
-
-#regindisplay a:visited {
+#regindisplay a:link 
+{
     color: black;
     text-decoration: underline;
 }
 
-#regindisplay a:hover {
+#regindisplay a:visited 
+{
+    color: black;
+    text-decoration: underline;
+}
+
+#regindisplay a:hover 
+{
     color: black;
     text-decoration: none;
 }
 
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error {
+.field-validation-error 
+{
     color: #ff0000;
 }
 
-.field-validation-valid {
+.field-validation-valid 
+{
     display: none;
 }
 
-.input-validation-error {
+.input-validation-error
+{
     border: 1px solid #ff0000;
     background-color: #ffeeee;
 }
 
-.validation-summary-errors {
-    font-weight: bold;
+.validation-summary-errors 
+{
+    font-weight: bold;    
     color: #ff0000;
 }
 
-.validation-summary-valid {
+.validation-summary-valid 
+{
     display: none;
 }
 
-/* Styles for editor and display helpers
-----------------------------------------------------------*/
 .display-label, 
-.editor-label {
+.editor-label 
+{
     margin: 1em 0 0 0;
 }
 
 .display-field, 
-.editor-field {
+.editor-field
+{
     margin: 0.5em 0 0 0;
 }
 
-.text-box {
+.text-box 
+{
     width: 30em;
 }
 
-.text-box.multi-line {
+.text-box.multi-line 
+{
     height: 6.5em;
 }
 
-.tri-state {
+.tri-state 
+{
     width: 6em;
 }

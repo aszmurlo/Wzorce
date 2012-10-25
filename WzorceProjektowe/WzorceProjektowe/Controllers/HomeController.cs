@@ -10,14 +10,28 @@ namespace WzorceProjektowe.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "msg";
+            ViewBag.Message = "Home";
+
+            return View();
+        }
+
+        public ActionResult Learn()
+        {
+            //not implemented yet
+
+            ViewBag.Message = "Linki";
 
             return View();
         }
 
         public ActionResult About()
         {
+            //not implemented yet
+
+            ViewBag.Message = "O projekcie";
+
             return View();
         }
+
     }
 }

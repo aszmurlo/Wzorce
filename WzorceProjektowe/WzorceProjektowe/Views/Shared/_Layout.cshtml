@@ -29,10 +29,11 @@
         </header>
             <menu>
                 <ul id="menu">
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">STATYSTYKI</a></li>
-                        <li><a href="#">QUIZ</a></li>
-                        <li><a href="#">NAUKA</a></li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("STATYSTYKI", "Index", "Statistics")</li>
+                        <li>@Html.ActionLink("QUIZ", "Index", "Quiz")</li>
+                        <li>@Html.ActionLink("NAUKA", "Learn", "Home")</li>
+                        <li>@Html.ActionLink("O PROJEKCIE", "About", "Home")</li>
                    </ul>
             </menu>
 
@@ -40,7 +41,7 @@
             @RenderBody()
         </section>
         <footer>
-            <p>Wzorce Projektowe, 2012</p>
+            <p id="footer">© J.K., J.P., A.P., A.Sz., Wzorce Projektowe, 2012.</p>
         </footer>
     </div>
 </body>
