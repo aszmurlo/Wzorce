@@ -4,12 +4,9 @@ to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
 body {
-    background-color: #5c87b2;
+    background: #1f1f1f;
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
-    color: #696969;
 }
 
 a:link {
@@ -77,19 +74,29 @@ h5, h6 {
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
 .page {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-header, #header {
-    position: relative;
-    margin-bottom: 0px;
-    color: #000;
-    padding: 0;
+header, 
+#header 
+{
+position: float;
+padding:0px;
+margin:auto;
+margin-top:2%;
+background: #333333;
+text-align: left;
+width: 94%;
+border: 3px dashed black;
+border-radius:14px 7px;
+overflow:hidden;
 }
 
-header h1, #header h1 {
+header h1, 
+#header h1 
+{
     font-weight: bold;
     padding: 5px 0;
     margin: 0;
@@ -100,76 +107,108 @@ header h1, #header h1 {
     text-shadow: 1px 1px 2px #111;
 }
 
+menu,
+#menu
+{
+float:left;
+padding-left:1.5%;
+padding-top:0px;
+padding-bottom:1.5%;
+padding-right:1.5%;
+margin-top:2%;
+margin-left:4%;
+background: #555555;
+text-align: left;
+width: 13%;
+}
+menu
+{
+border: 3px dashed black;
+border-radius:14px 7px;
+}
+
+menu a,
+#menu a
+{
+float:right;
+width:80%;
+height:20%;
+text-decoration:none;
+color:black;
+background-color:#333333;
+padding:3% 10%;
+text-align:center;
+border:2px solid black;
+border-radius:7px;
+}
+
+menu a:hover,
+#menu a:hover
+{
+background-color:#1f1f1f;
+-webkit-transition:all .3s ease-in-out;
+-moz-transition:all .3s ease-in-out;
+-o-transition:all .3s ease-in-out;
+transition:all .3s ease-in-out;
+-webkit-transform:scale(1.05);
+-moz-transform:scale(1.05);
+-o-transform:scale(1.05);
+transform: scale(1.05);
+}
+
+menu a:active,
+#menu a:active
+{
+background-color:#1f1f1f;
+}
+
+
 #main {
-    padding: 30px 30px 15px 30px;
-    background-color: #fff;
-    border-radius: 4px 0 0 0;
-    -webkit-border-radius: 4px 0 0 0;
-    -moz-border-radius: 4px 0 0 0;
+position:float;
+float:right;
+padding-left:1.5%;
+padding-top:0px;
+padding-bottom:1.5%;
+padding-right:1.5%;
+margin-top:2%;
+margin-right:3%;
+margin-bottom:2%;
+background:#7b7b7b;
+text-align:left;
+width:70%;
+border: 3px dashed black;
+border-radius:14px 7px;
 }
 
 footer, 
 #footer {
-    background-color: #fff;
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-    line-height: normal;
-    margin: 0 0 30px 0;
-    font-size: .9em;
-    border-radius: 0 0 4px 4px;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
+clear:both;
+position:relative;
+padding:0px;
+margin:auto;
+margin-top:2%;
+margin-bottom:2%;
+background:#333333;
+text-align:center;
+width:94%;
+border:3px dashed black;
+border-radius:14px 7px;
 }
 
 /* TAB MENU   
 ----------------------------------------------------------*/
-ul#menu {
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 2px;
-    position: relative;
-    margin: 0;
-    text-align: right;
+ul#menu
+{
+width:100%;
+padding:0;
+margin:0;
+list-style-type:none;
 }
 
 ul#menu li {
-    display: inline;
-    list-style: none;
-}
-
-ul#menu li#greeting {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    color: #fff;
-}
-
-ul#menu li a {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    background-color: #e8eef4;
-    color: #034af3;
-    border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
-}
-
-ul#menu li a:hover {
-    background-color: #fff;
-    text-decoration: none;
-}
-
-ul#menu li a:active {
-    background-color: #a6e2a6;
-    text-decoration: none;
-}
-
-ul#menu li.selected a {
-    background-color: #fff;
-    color: #000;
+display:block;
+padding-top:10%;
+padding-bottom:20%;
 }
 
 /* FORM LAYOUT ELEMENTS   
@@ -254,24 +293,51 @@ div#title {
 
 #logindisplay {
     font-size: 1.1em;
-    display: block;
+    display: inline;
     text-align: right;
     margin: 10px;
-    color: White;
+    margin-top:25px;
+    color: black;
+    float:right;
 }
 
 #logindisplay a:link {
-    color: white;
+    color: black;
     text-decoration: underline;
 }
 
 #logindisplay a:visited {
-    color: white;
+    color: black;
     text-decoration: underline;
 }
 
 #logindisplay a:hover {
-    color: white;
+    color: black;
+    text-decoration: none;
+}
+
+#regindisplay {
+    font-size: 1.1em;
+    display: inline;
+    text-align: right;
+    margin:10px;
+    margin-top:25px;
+    color: black;
+    float:right;
+}
+
+#regindisplay a:link {
+    color: black;
+    text-decoration: underline;
+}
+
+#regindisplay a:visited {
+    color: black;
+    text-decoration: underline;
+}
+
+#regindisplay a:hover {
+    color: black;
     text-decoration: none;
 }
 
