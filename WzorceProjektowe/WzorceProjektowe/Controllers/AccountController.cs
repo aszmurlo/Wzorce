@@ -43,7 +43,7 @@ namespace WzorceProjektowe.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    ModelState.AddModelError("", "Wprowadzona informacje są niepoprawne.");
                 }
             }
 
@@ -134,7 +134,7 @@ namespace WzorceProjektowe.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", "Aktualne hasło jest niewłaściwe lub nowe jest niepoprawne.");
                 }
             }
 
@@ -158,34 +158,34 @@ namespace WzorceProjektowe.Controllers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
+                    return "Użytkownik o takiej nazwie już istnieje. Proszę wprowadzić inną nazwę.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+                    return "Wprowadzony adres email jest już przypisany do istniejącego użytkownika. Proszę wprowadzić inny adres email.";
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
+                    return "Wprowadzone hasło jest niepoprawne. Spróbuj ponownie.";
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return "Wprowadzony adres email jest niepoprawny. Spróbuj ponownie.";
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
+                    return "Odzyskiwanie hasła nie powiodło się ze względu na błędną odpowiedź na pytanie zabezpieczające.";
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
+                    return "Odzyskiwanie hasła nie powiodło się ze względu na błędne pytanie zabezpieczające.";
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return "Wprowadzona nazwa użytkownika jest niepoprawna. Spróbuj ponownie.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Uwierzytelnianie nie powiodło się. Spróbuj ponownie. Jeżeli problem będzie sie powtarzał, skontaktuj się z administratorem.";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Rejestracja konta została anulowana.  Spróbuj ponownie. Jeżeli problem będzie sie powtarzał, skontaktuj się z administratorem.";
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return "Wystąpił nieoczekiwany błąd. Spróbuj ponownie. Jeżeli problem będzie się powtarzał, skontaktuj się z administratorem.";
             }
         }
         #endregion

@@ -307,7 +307,7 @@ table th
 
 .error 
 {
-    color: Red;
+    color: #B22222;
 }
 
 nav, 
@@ -383,7 +383,7 @@ div#title
 
 .field-validation-error 
 {
-    color: #ff0000;
+    color: #B22222;
 }
 
 .field-validation-valid 
@@ -393,14 +393,14 @@ div#title
 
 .input-validation-error
 {
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
+    border: 1px solid #B22222;
+    background-color: #eeeeee;
 }
 
 .validation-summary-errors 
 {
     font-weight: bold;    
-    color: #ff0000;
+    color: #B22222;
 }
 
 .validation-summary-valid 
