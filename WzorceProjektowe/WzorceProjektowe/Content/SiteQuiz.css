@@ -1,0 +1,432 @@
+﻿body
+{
+    background: #1f1f1f;
+    font-size: .85em;
+    font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
+}
+
+a:link
+{
+    color: black;
+    text-decoration: underline;
+}
+
+a:visited
+{
+    color: black;
+    font-weight: bold;
+}
+
+a:hover
+{
+    color: black;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: black;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+header, footer, nav, section
+{
+    display: block;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2
+{
+    padding: 0 0 10px 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS */
+
+.page
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header, #header
+{
+    position: float;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin: auto;
+    margin-top: 2%;
+    background: #555555;
+    text-align: left;
+    width: 94%;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px #111111;
+}
+
+header h1, #header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+    text-shadow: 1px 1px 2px #111;
+}
+
+menu, #menu
+{
+    position: float;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #636363;
+    text-align: center;
+    width: 90%;
+}
+
+menu
+{
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    box-shadow: 2px 2px 8px #111111;
+}
+
+menu a, #menu a
+{
+    width: auto;
+    text-decoration: none;
+    color: black;
+    background-color: #555555;
+    padding: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px #333333;
+}
+
+menu a:hover, #menu a:hover
+{
+    background-color: #333333;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+menu a:active, #menu a:active
+{
+    background-color: #1f1f1f;
+}
+
+
+#main
+{
+    position: relative;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #7b7b7b;
+    text-align: left;
+    width: 88%;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    box-shadow: 2px 2px 8px #111111;
+}
+
+footer, #footer
+{
+    position: relative;
+    padding: 0px;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: #555555;
+    text-align: center;
+    width: 94%;
+}
+
+footer
+{
+    clear: both;
+    border: 1px solid black;
+    border-radius: 3px 3px;
+    box-shadow: 2px 2px 8px #111111;
+}
+
+p#footer
+{
+    margin: 1px;
+}
+
+p#left
+{
+    font-style: italic;
+}
+
+ul#menu
+{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+ul#menu li
+{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100px;
+}
+
+ul#menu li a
+{
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/* FORMS */
+
+fieldset
+{
+    border: 1px solid #333333;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea
+{
+    min-height: 75px;
+}
+
+input
+{
+    background: #ddd;
+}
+
+input[type="text"], input[type="password"]
+{
+    border: 1px solid #333333;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select
+{
+    border: 1px solid #ddd;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"]
+{
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* TABLE */
+
+table
+{
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+table td
+{
+    padding: 5px;
+    border: solid 1px #e8eef4;
+}
+
+table th
+{
+    padding: 6px 5px;
+    text-align: left;
+    background-color: #e8eef4;
+    border: solid 1px #e8eef4;
+}
+
+/* MISC */
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color: #B22222;
+}
+
+nav, #menucontainer
+{
+    margin-top: 40px;
+}
+
+div#title
+{
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+#logindisplay
+{
+    font-size: 1.1em;
+    display: inline;
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 25px;
+    color: black;
+    float: right;
+}
+
+#logindisplay a:link
+{
+    color: black;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    color: black;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    color: black;
+    text-decoration: none;
+}
+
+#regindisplay
+{
+    font-size: 1.1em;
+    display: inline;
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 25px;
+    color: black;
+    float: right;
+}
+
+#regindisplay a:link
+{
+    color: black;
+    text-decoration: underline;
+}
+
+#regindisplay a:visited
+{
+    color: black;
+    text-decoration: underline;
+}
+
+#regindisplay a:hover
+{
+    color: black;
+    text-decoration: none;
+}
+
+.field-validation-error
+{
+    color: #B22222;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #B22222;
+    background-color: #eeeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #B22222;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+.display-label, .editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.display-field, .editor-field
+{
+    margin: 0.5em 0 0 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
