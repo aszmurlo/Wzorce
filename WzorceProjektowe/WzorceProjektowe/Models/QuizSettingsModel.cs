@@ -17,5 +17,10 @@ namespace WzorceProjektowe.Models
             HelloMsg = "Quiz Settings Page";
         }
 
+        [Required]
+        public int Difficulty { get; set; }
+
+        [Required]
+        public int QuestionNumber { get; set; }
     }
 }

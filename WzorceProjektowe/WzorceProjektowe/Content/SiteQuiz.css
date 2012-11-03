@@ -156,6 +156,7 @@ menu a:active, #menu a:active
 #main
 {
     position: relative;
+    overflow:hidden;
     padding-top: 2%;
     padding-bottom: 2%;
     padding-left: 1.5%;
@@ -169,6 +170,50 @@ menu a:active, #menu a:active
     border: 1px solid black;
     border-radius: 3px 3px;
     box-shadow: 2px 2px 8px #111111;
+}
+
+#main #mainleft
+{
+    float: left;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1.5%;
+    padding-right: 5%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #7b7b7b;
+    text-align: right;
+    width: 40%;
+}
+
+#main #mainright
+{
+    float: right;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5%;
+    padding-right: 1.5%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #7b7b7b;
+    text-align: left;
+    width: 40%;
+}
+
+#main #maincenter
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #7b7b7b;
+    text-align: center;
+    width: 80%;
 }
 
 footer, #footer
@@ -272,8 +317,18 @@ select
 
 input[type="submit"]
 {
-    font-size: 1.2em;
+    width: 80px;
+    height:30px;
+    text-decoration: none;
+    color: black;
+    background-color: #555555;
     padding: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px #333333;
 }
 
 /* TABLE */

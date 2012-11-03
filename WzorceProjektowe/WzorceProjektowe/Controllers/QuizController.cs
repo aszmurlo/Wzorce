@@ -19,5 +19,12 @@ namespace WzorceProjektowe.Controllers
             return View(new QuizSettingsModel());
         }
 
+        [HttpPost]
+        public ActionResult Index(QuizSettingsModel model)
+        {
+            ViewBag.Message = "Wybrano quiz składający się z " + model.QuestionNumber + " pytań o poziomie trudności: " + model.Difficulty+".";
+            return View(model);
+        }
+
     }
 }

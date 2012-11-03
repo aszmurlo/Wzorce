@@ -6,4 +6,23 @@
            
 <h2>@ViewBag.Message</h2>
 
-<p>@Model.HelloMsg</p>
+@using (Html.BeginForm())
+{
+    <div id="mainleft">
+    <p>Wybierz poziom quizu:</p>
+    łatwy @Html.RadioButtonFor(quiz => quiz.Difficulty, 1, new { @checked = true })<br />
+    łatwy i średni @Html.RadioButtonFor(quiz => quiz.Difficulty, 2)<br />
+    średni @Html.RadioButtonFor(quiz => quiz.Difficulty, 3)<br />
+    średni i trudny @Html.RadioButtonFor(quiz => quiz.Difficulty, 4)<br />
+    trudny @Html.RadioButtonFor(quiz => quiz.Difficulty, 5)</div>
+       
+    <div id="mainright">
+    <p>Wybierz liczbę pytań:</p>
+    @Html.RadioButtonFor(quiz => quiz.QuestionNumber, 5, new { @checked = true }) pięć<br />
+    @Html.RadioButtonFor(quiz => quiz.QuestionNumber, 10) dziesięć<br />
+    @Html.RadioButtonFor(quiz => quiz.QuestionNumber, 15) piętnaście<br />
+    @Html.RadioButtonFor(quiz => quiz.QuestionNumber, 20) dwadzieścia<br />
+    @Html.RadioButtonFor(quiz => quiz.QuestionNumber, 25) dwadzieścia pięć</div>
+    
+    <div id="maincenter"><p><input type="submit" value="OK" style="cursor:pointer"/></p></div>
+}
