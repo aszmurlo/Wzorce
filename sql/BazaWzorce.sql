@@ -1,6 +1,6 @@
 CREATE TABLE Uzytkownicy
 (
-	ID_user INT not null
+	ID_user INT not null IDENTITY(1,1)
 	CONSTRAINT PK_Uzytkownicy PRIMARY KEY CLUSTERED (ID_user ASC) 
         ON [PRIMARY] 
 )
@@ -8,7 +8,7 @@ GO
 
 CREATE TABLE Rozwiazane_quizy
 (
-	ID_rozwiazanegoquizu INT not null,
+	ID_rozwiazanegoquizu INT not null IDENTITY(1,1),
 	Statusq BIT not null,
 	Liczba_pytan INT not null,
 	Liczba_poprodp INT not null,
@@ -22,7 +22,7 @@ GO
 
 CREATE TABLE Zadane_pytania 
 (
-	ID_zadanegopytania INT not null,
+	ID_zadanegopytania INT not null IDENTITY(1,1),
 	ID_rozwiazanegoquizu INT not null,
 	ID_pytania INT not null,
 	ID_udzielonejodp INT not null,
@@ -33,7 +33,7 @@ GO
 
 CREATE TABLE Pytania
 (
-	ID_pytania INT not null,
+	ID_pytania INT not null IDENTITY(1,1),
 	Poziom_trudnosci VARCHAR(10) not null,
 	Tresc_pytania VARCHAR(1000),
 	Obrazek VARBINARY(MAX),
@@ -44,12 +44,13 @@ GO
 
 CREATE TABLE Odpowiedzi
 (
-	ID_odpowiedzi INT not null,
+	ID_odpowiedzi INT not null IDENTITY(1,1),
 	Tresc_odpowiedzi VARCHAR(200) not null
 	CONSTRAINT PK_Odpowiedzi PRIMARY KEY CLUSTERED (ID_odpowiedzi ASC) 
         ON [PRIMARY] 
 	)
 GO
+
 
 CREATE TABLE Pytania_Odpowiedzi
 (
@@ -88,4 +89,3 @@ ALTER TABLE Pytania_Odpowiedzi ADD
       FOREIGN    KEY (ID_pytania)
       REFERENCES Pytania(ID_pytania)
 GO
-
