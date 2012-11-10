@@ -20,6 +20,11 @@ CREATE TABLE Rozwiazane_quizy
 )
 GO
 
+ALTER TABLE Rozwiazane_quizy
+ADD Poziom_trudnosci INT not null
+
+GO
+
 CREATE TABLE Zadane_pytania 
 (
 	ID_zadanegopytania INT not null IDENTITY(1,1),
