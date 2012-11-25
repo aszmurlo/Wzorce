@@ -260,6 +260,20 @@ namespace WzorceProjektowe.Models
             }
         }
 
+        public static void AddUserAnswer(int ID_zadanegopytania1, int ID_rozwiazanegoquizu1, int ID_pytania1, int ID_udzielonejodp1)
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                //Create new Emp object
+                Zadane_pytania zadpyt = new Zadane_pytania { ID_zadanegopytania = ID_zadanegopytania1, ID_rozwiazanegoquizu = ID_rozwiazanegoquizu1, ID_pytania = ID_pytania1, ID_udzielonejodp = ID_udzielonejodp1 };
+                //Add to memory
+                ctx.AddToZadane_pytania(zadpyt);
+                //Save to database
+                ctx.SaveChanges();
+
+            }
+        }
+
         //sprawdza czy udzielona odpowiedź na zadane pytanie jest prawidłowa
         public static bool IsAnswerRight(int ID_zadanegopytania1, int ID_udzielonejodp1)
         {
@@ -313,5 +327,6 @@ namespace WzorceProjektowe.Models
                 ctx.SaveChanges();
             }
         }
+
     }
 }
