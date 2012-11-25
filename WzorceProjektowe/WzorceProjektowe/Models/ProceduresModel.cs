@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Drawing;
 using System.Linq;
 
 namespace WzorceProjektowe.Models
@@ -203,6 +204,114 @@ namespace WzorceProjektowe.Models
                 return lista;
             }
         }
-        
+
+        public static int GetQuestionRightAnswer(int ID_pytania1)
+        {
+            int ans=0;
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                var contactQuery = from Pytania_Odpowiedzi in ctx.Pytania_Odpowiedzi
+                                   where Pytania_Odpowiedzi.Czy_odp_ok==true
+                                   select Pytania_Odpowiedzi;
+                foreach (var result in contactQuery)
+                {
+                    if (result.ID_pytania == ID_pytania1)
+                    {
+                        ans = result.ID_odpowiedzi;
+                    }
+                }
+                return ans;
+            }
+        }
+
+        //metoda na razie nie działa
+        public static byte[] GetQuestionImg(int ID_pytania1)
+        {
+            int i = 0;
+            byte[] obr= new byte[byte.MaxValue];
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                var contactQuery = from Pytania in ctx.Pytania
+                                   where Pytania.Obrazek!=null
+                                   select Pytania;
+                foreach (var result in contactQuery)
+                {
+                    if (result.ID_pytania == ID_pytania1)
+                    {
+                        obr[i]=result.Obrazek[i];
+                    }
+                    i++;
+                }
+                return obr;
+            }
+        }
+
+        public static void SetUserAnswer(int ID_zadanegopytania1,int ID_udzielonejodp1)
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                var contactQuery = from Zadane_pytania in ctx.Zadane_pytania
+                                   where Zadane_pytania.ID_zadanegopytania == ID_zadanegopytania1
+                                   select Zadane_pytania;
+                foreach (var result in contactQuery)
+                {
+                    result.ID_udzielonejodp = ID_udzielonejodp1;
+                }
+            }
+        }
+
+        //sprawdza czy udzielona odpowiedź na zadane pytanie jest prawidłowa
+        public static bool IsAnswerRight(int ID_zadanegopytania1, int ID_udzielonejodp1)
+        {
+            bool ok=false;
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                var contactQuery = from Pytania_Odpowiedzi in ctx.Pytania_Odpowiedzi
+                                   where Pytania_Odpowiedzi.ID_odpowiedzi==ID_udzielonejodp1
+                                   select Pytania_Odpowiedzi;
+                foreach (var result in contactQuery)
+                {
+                    if (result.ID_pytania == ID_zadanegopytania1)
+                    {
+                        if (result.Czy_odp_ok == true)
+                        {
+                            ok = true;
+                        }
+                        else
+                        {
+                            ok = false;
+                        }
+                    }
+                }
+               return ok;
+            }
+        }
+
+
+        //Dodawanie pytań i odpowiedzi na potrzeby wersji 5.0
+        public static void AddQuestion(int ID_pytania1,string Poziom_trudnosci1, string Tresc_pytania1, byte[] Obraz1, int ID_odp1,string Tresc_odp1, bool czy_odpok1)  
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                //Create new Emp object
+                Pytania pyt = new Pytania { ID_pytania = ID_pytania1, Tresc_pytania=Tresc_pytania1, Obrazek=Obraz1, Poziom_trudnosci=Poziom_trudnosci1};
+                //Add to memory
+                ctx.AddToPytania(pyt);
+                //Save to database
+                ctx.SaveChanges();
+
+                Odpowiedzi odp = new Odpowiedzi { ID_odpowiedzi = ID_odp1, Tresc_odpowiedzi = Tresc_odp1 };
+                //Add to memory
+                ctx.AddToOdpowiedzi(odp);
+                //Save to database
+                ctx.SaveChanges();
+
+                Pytania_Odpowiedzi pytodp = new Pytania_Odpowiedzi { ID_odpowiedzi = ID_odp1, ID_pytania = ID_pytania1, Czy_odp_ok = czy_odpok1 };
+                //Add to memory
+                ctx.AddToPytania_Odpowiedzi(pytodp);
+                //Save to database
+                ctx.SaveChanges();
+            }
+        }
     }
 }
