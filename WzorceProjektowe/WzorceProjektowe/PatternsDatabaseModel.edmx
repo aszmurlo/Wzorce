@@ -16,6 +16,7 @@
       FROM [dbo].[Pytania_Odpowiedzi] AS [Pytania_Odpowiedzi]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Rozwiazane_quizy" EntityType="PatternsDatabaseModel.Store.Rozwiazane_quizy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="PatternsDatabaseModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Uzytkownicy" EntityType="PatternsDatabaseModel.Store.Uzytkownicy" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Zadane_pytania" EntityType="PatternsDatabaseModel.Store.Zadane_pytania" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
@@ -61,6 +62,16 @@
           <Property Name="ID_user" Type="int" Nullable="false" />
           <Property Name="Poziom_trudnosci" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Uzytkownicy">
           <Key>
             <PropertyRef Name="ID_user" />
@@ -76,6 +87,37 @@
           <Property Name="ID_pytania" Type="int" Nullable="false" />
           <Property Name="ID_udzielonejodp" Type="int" Nullable="false" />
         </EntityType>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
@@ -86,6 +128,7 @@
           <EntitySet Name="Pytania" EntityType="PatternsDatabaseModel.Pytania" />
           <EntitySet Name="Pytania_Odpowiedzi" EntityType="PatternsDatabaseModel.Pytania_Odpowiedzi" />
           <EntitySet Name="Rozwiazane_quizy" EntityType="PatternsDatabaseModel.Rozwiazane_quizy" />
+          <EntitySet Name="sysdiagrams" EntityType="PatternsDatabaseModel.sysdiagrams" />
           <EntitySet Name="Uzytkownicy" EntityType="PatternsDatabaseModel.Uzytkownicy" />
           <EntitySet Name="Zadane_pytania" EntityType="PatternsDatabaseModel.Zadane_pytania" />
         </EntityContainer>
@@ -128,6 +171,16 @@
           <Property Name="ID_user" Type="Int32" Nullable="false" />
           <Property Name="Poziom_trudnosci" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Uzytkownicy">
           <Key>
             <PropertyRef Name="ID_user" />
@@ -149,64 +202,47 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PatternsDatabaseModelStoreContainer" CdmEntityContainer="PatternsEntities">
-          <EntitySetMapping Name="Odpowiedzi">
-            <EntityTypeMapping TypeName="PatternsDatabaseModel.Odpowiedzi">
-              <MappingFragment StoreEntitySet="Odpowiedzi">
-                <ScalarProperty Name="ID_odpowiedzi" ColumnName="ID_odpowiedzi" />
-                <ScalarProperty Name="Tresc_odpowiedzi" ColumnName="Tresc_odpowiedzi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pytania">
-            <EntityTypeMapping TypeName="PatternsDatabaseModel.Pytania">
-              <MappingFragment StoreEntitySet="Pytania">
-                <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
-                <ScalarProperty Name="Poziom_trudnosci" ColumnName="Poziom_trudnosci" />
-                <ScalarProperty Name="Tresc_pytania" ColumnName="Tresc_pytania" />
-                <ScalarProperty Name="Obrazek" ColumnName="Obrazek" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pytania_Odpowiedzi">
-            <EntityTypeMapping TypeName="PatternsDatabaseModel.Pytania_Odpowiedzi">
-              <MappingFragment StoreEntitySet="Pytania_Odpowiedzi">
-                <ScalarProperty Name="ID_odpowiedzi" ColumnName="ID_odpowiedzi" />
-                <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
-                <ScalarProperty Name="Czy_odp_ok" ColumnName="Czy_odp_ok" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Rozwiazane_quizy">
-            <EntityTypeMapping TypeName="PatternsDatabaseModel.Rozwiazane_quizy">
-              <MappingFragment StoreEntitySet="Rozwiazane_quizy">
-                <ScalarProperty Name="ID_rozwiazanegoquizu" ColumnName="ID_rozwiazanegoquizu" />
-                <ScalarProperty Name="Statusq" ColumnName="Statusq" />
-                <ScalarProperty Name="Liczba_pytan" ColumnName="Liczba_pytan" />
-                <ScalarProperty Name="Liczba_poprodp" ColumnName="Liczba_poprodp" />
-                <ScalarProperty Name="Liczba_niepoprodp" ColumnName="Liczba_niepoprodp" />
-                <ScalarProperty Name="Wynik" ColumnName="Wynik" />
-                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
-                <ScalarProperty Name="Poziom_trudnosci" ColumnName="Poziom_trudnosci" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Uzytkownicy">
-            <EntityTypeMapping TypeName="PatternsDatabaseModel.Uzytkownicy">
-              <MappingFragment StoreEntitySet="Uzytkownicy">
-                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Zadane_pytania">
-            <EntityTypeMapping TypeName="PatternsDatabaseModel.Zadane_pytania">
-              <MappingFragment StoreEntitySet="Zadane_pytania">
-                <ScalarProperty Name="ID_zadanegopytania" ColumnName="ID_zadanegopytania" />
-                <ScalarProperty Name="ID_rozwiazanegoquizu" ColumnName="ID_rozwiazanegoquizu" />
-                <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
-                <ScalarProperty Name="ID_udzielonejodp" ColumnName="ID_udzielonejodp" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <EntitySetMapping Name="Odpowiedzi"><EntityTypeMapping TypeName="PatternsDatabaseModel.Odpowiedzi"><MappingFragment StoreEntitySet="Odpowiedzi">
+            <ScalarProperty Name="ID_odpowiedzi" ColumnName="ID_odpowiedzi" />
+            <ScalarProperty Name="Tresc_odpowiedzi" ColumnName="Tresc_odpowiedzi" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Pytania"><EntityTypeMapping TypeName="PatternsDatabaseModel.Pytania"><MappingFragment StoreEntitySet="Pytania">
+            <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
+            <ScalarProperty Name="Poziom_trudnosci" ColumnName="Poziom_trudnosci" />
+            <ScalarProperty Name="Tresc_pytania" ColumnName="Tresc_pytania" />
+            <ScalarProperty Name="Obrazek" ColumnName="Obrazek" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Pytania_Odpowiedzi"><EntityTypeMapping TypeName="PatternsDatabaseModel.Pytania_Odpowiedzi"><MappingFragment StoreEntitySet="Pytania_Odpowiedzi">
+            <ScalarProperty Name="ID_odpowiedzi" ColumnName="ID_odpowiedzi" />
+            <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
+            <ScalarProperty Name="Czy_odp_ok" ColumnName="Czy_odp_ok" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Rozwiazane_quizy"><EntityTypeMapping TypeName="PatternsDatabaseModel.Rozwiazane_quizy"><MappingFragment StoreEntitySet="Rozwiazane_quizy">
+            <ScalarProperty Name="ID_rozwiazanegoquizu" ColumnName="ID_rozwiazanegoquizu" />
+            <ScalarProperty Name="Statusq" ColumnName="Statusq" />
+            <ScalarProperty Name="Liczba_pytan" ColumnName="Liczba_pytan" />
+            <ScalarProperty Name="Liczba_poprodp" ColumnName="Liczba_poprodp" />
+            <ScalarProperty Name="Liczba_niepoprodp" ColumnName="Liczba_niepoprodp" />
+            <ScalarProperty Name="Wynik" ColumnName="Wynik" />
+            <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+            <ScalarProperty Name="Poziom_trudnosci" ColumnName="Poziom_trudnosci" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="PatternsDatabaseModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownicy"><EntityTypeMapping TypeName="PatternsDatabaseModel.Uzytkownicy"><MappingFragment StoreEntitySet="Uzytkownicy">
+            <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zadane_pytania"><EntityTypeMapping TypeName="PatternsDatabaseModel.Zadane_pytania"><MappingFragment StoreEntitySet="Zadane_pytania">
+            <ScalarProperty Name="ID_zadanegopytania" ColumnName="ID_zadanegopytania" />
+            <ScalarProperty Name="ID_rozwiazanegoquizu" ColumnName="ID_rozwiazanegoquizu" />
+            <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
+            <ScalarProperty Name="ID_udzielonejodp" ColumnName="ID_udzielonejodp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -232,8 +268,9 @@
         <EntityTypeShape EntityType="PatternsDatabaseModel.Pytania" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="PatternsDatabaseModel.Pytania_Odpowiedzi" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="PatternsDatabaseModel.Rozwiazane_quizy" Width="1.5" PointX="2.75" PointY="3.75" Height="2.5571907552083335" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Uzytkownicy" Width="1.5" PointX="4.75" PointY="0.75" Height="1.2110807291666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Zadane_pytania" Width="1.5" PointX="4.75" PointY="2.75" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsDatabaseModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsDatabaseModel.Uzytkownicy" Width="1.5" PointX="4.75" PointY="3.75" Height="1.211080729166667" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsDatabaseModel.Zadane_pytania" Width="1.5" PointX="4.75" PointY="5.75" Height="1.7879850260416674" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>
