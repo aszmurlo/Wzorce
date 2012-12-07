@@ -8,6 +8,9 @@ CREATE TABLE Uzytkownicy
 )
 GO
 
+ALTER TABLE Uzytkownicy add Username VARCHAR(30);
+GO
+
 CREATE TABLE Rozwiazane_quizy
 (
 	ID_rozwiazanegoquizu INT not null IDENTITY(1,1),

@@ -76,10 +76,10 @@
     <Compile Include="Models\QuizSettingsModel.cs" />
     <Compile Include="Models\LocalStatisticsModel.cs" />
     <Compile Include="Models\GlobalStatisticsModel.cs" />
-    <Compile Include="PatternsDatabaseModel.Designer.cs">
+    <Compile Include="PatternsEntitiesModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatternsDatabaseModel.edmx</DependentUpon>
+      <DependentUpon>PatternsEntitiesModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -176,9 +176,9 @@
     <Content Include="Views\Quiz\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="PatternsDatabaseModel.edmx">
+    <EntityDeploy Include="PatternsEntitiesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PatternsDatabaseModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>PatternsEntitiesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

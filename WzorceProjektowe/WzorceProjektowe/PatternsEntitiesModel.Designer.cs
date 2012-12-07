@@ -247,7 +247,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="Odpowiedzi")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="Odpowiedzi")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Odpowiedzi : EntityObject
@@ -328,7 +328,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="Pytania")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="Pytania")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Pytania : EntityObject
@@ -457,7 +457,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="Pytania_Odpowiedzi")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="Pytania_Odpowiedzi")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Pytania_Odpowiedzi : EntityObject
@@ -570,7 +570,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="Rozwiazane_quizy")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="Rozwiazane_quizy")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Rozwiazane_quizy : EntityObject
@@ -807,7 +807,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="sysdiagrams")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="sysdiagrams")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class sysdiagrams : EntityObject
@@ -962,7 +962,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="Uzytkownicy")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="Uzytkownicy")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Uzytkownicy : EntityObject
@@ -1009,6 +1009,30 @@ namespace WzorceProjektowe
         private global::System.Int32 _ID_user;
         partial void OnID_userChanging(global::System.Int32 value);
         partial void OnID_userChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Username
+        {
+            get
+            {
+                return _Username;
+            }
+            set
+            {
+                OnUsernameChanging(value);
+                ReportPropertyChanging("Username");
+                _Username = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Username");
+                OnUsernameChanged();
+            }
+        }
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
 
         #endregion
     
@@ -1017,7 +1041,7 @@ namespace WzorceProjektowe
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="PatternsDatabaseModel", Name="Zadane_pytania")]
+    [EdmEntityTypeAttribute(NamespaceName="PatternsEntitiesModel", Name="Zadane_pytania")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Zadane_pytania : EntityObject

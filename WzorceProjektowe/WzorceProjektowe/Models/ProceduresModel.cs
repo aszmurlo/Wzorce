@@ -326,6 +326,19 @@ namespace WzorceProjektowe.Models
                 //Save to database
                 ctx.SaveChanges();
             }
+
+        }
+        public static void AddToUzytkownicy(string username1)
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                //Create new Emp object
+                Uzytkownicy e = new Uzytkownicy { Username = username1 };
+                //Add to memory
+                ctx.AddToUzytkownicy(e);
+                //Save to database
+                ctx.SaveChanges();
+            }
         }
 
     }

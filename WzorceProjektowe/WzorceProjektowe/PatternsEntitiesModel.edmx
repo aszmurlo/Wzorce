@@ -4,21 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PatternsDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="PatternsDatabaseModelStoreContainer">
-          <EntitySet Name="Odpowiedzi" EntityType="PatternsDatabaseModel.Store.Odpowiedzi" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Pytania" EntityType="PatternsDatabaseModel.Store.Pytania" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Pytania_Odpowiedzi" EntityType="PatternsDatabaseModel.Store.Pytania_Odpowiedzi" store:Type="Tables" store:Schema="dbo" store:Name="Pytania_Odpowiedzi">
+      <Schema Namespace="PatternsEntitiesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PatternsEntitiesModelStoreContainer">
+          <EntitySet Name="Odpowiedzi" EntityType="PatternsEntitiesModel.Store.Odpowiedzi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pytania" EntityType="PatternsEntitiesModel.Store.Pytania" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pytania_Odpowiedzi" EntityType="PatternsEntitiesModel.Store.Pytania_Odpowiedzi" store:Type="Tables" store:Schema="dbo" store:Name="Pytania_Odpowiedzi">
             <DefiningQuery>SELECT 
       [Pytania_Odpowiedzi].[ID_odpowiedzi] AS [ID_odpowiedzi], 
       [Pytania_Odpowiedzi].[ID_pytania] AS [ID_pytania], 
       [Pytania_Odpowiedzi].[Czy_odp_ok] AS [Czy_odp_ok]
       FROM [dbo].[Pytania_Odpowiedzi] AS [Pytania_Odpowiedzi]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Rozwiazane_quizy" EntityType="PatternsDatabaseModel.Store.Rozwiazane_quizy" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="PatternsDatabaseModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Uzytkownicy" EntityType="PatternsDatabaseModel.Store.Uzytkownicy" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zadane_pytania" EntityType="PatternsDatabaseModel.Store.Zadane_pytania" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rozwiazane_quizy" EntityType="PatternsEntitiesModel.Store.Rozwiazane_quizy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="PatternsEntitiesModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Uzytkownicy" EntityType="PatternsEntitiesModel.Store.Uzytkownicy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zadane_pytania" EntityType="PatternsEntitiesModel.Store.Zadane_pytania" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Odpowiedzi">
           <Key>
@@ -77,6 +77,7 @@
             <PropertyRef Name="ID_user" />
           </Key>
           <Property Name="ID_user" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Zadane_pytania">
           <Key>
@@ -122,15 +123,15 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PatternsDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="PatternsEntitiesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="PatternsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Odpowiedzi" EntityType="PatternsDatabaseModel.Odpowiedzi" />
-          <EntitySet Name="Pytania" EntityType="PatternsDatabaseModel.Pytania" />
-          <EntitySet Name="Pytania_Odpowiedzi" EntityType="PatternsDatabaseModel.Pytania_Odpowiedzi" />
-          <EntitySet Name="Rozwiazane_quizy" EntityType="PatternsDatabaseModel.Rozwiazane_quizy" />
-          <EntitySet Name="sysdiagrams" EntityType="PatternsDatabaseModel.sysdiagrams" />
-          <EntitySet Name="Uzytkownicy" EntityType="PatternsDatabaseModel.Uzytkownicy" />
-          <EntitySet Name="Zadane_pytania" EntityType="PatternsDatabaseModel.Zadane_pytania" />
+          <EntitySet Name="Odpowiedzi" EntityType="PatternsEntitiesModel.Odpowiedzi" />
+          <EntitySet Name="Pytania" EntityType="PatternsEntitiesModel.Pytania" />
+          <EntitySet Name="Pytania_Odpowiedzi" EntityType="PatternsEntitiesModel.Pytania_Odpowiedzi" />
+          <EntitySet Name="Rozwiazane_quizy" EntityType="PatternsEntitiesModel.Rozwiazane_quizy" />
+          <EntitySet Name="sysdiagrams" EntityType="PatternsEntitiesModel.sysdiagrams" />
+          <EntitySet Name="Uzytkownicy" EntityType="PatternsEntitiesModel.Uzytkownicy" />
+          <EntitySet Name="Zadane_pytania" EntityType="PatternsEntitiesModel.Zadane_pytania" />
         </EntityContainer>
         <EntityType Name="Odpowiedzi">
           <Key>
@@ -186,6 +187,7 @@
             <PropertyRef Name="ID_user" />
           </Key>
           <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Zadane_pytania">
           <Key>
@@ -201,23 +203,23 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PatternsDatabaseModelStoreContainer" CdmEntityContainer="PatternsEntities">
-          <EntitySetMapping Name="Odpowiedzi"><EntityTypeMapping TypeName="PatternsDatabaseModel.Odpowiedzi"><MappingFragment StoreEntitySet="Odpowiedzi">
+        <EntityContainerMapping StorageEntityContainer="PatternsEntitiesModelStoreContainer" CdmEntityContainer="PatternsEntities">
+          <EntitySetMapping Name="Odpowiedzi"><EntityTypeMapping TypeName="PatternsEntitiesModel.Odpowiedzi"><MappingFragment StoreEntitySet="Odpowiedzi">
             <ScalarProperty Name="ID_odpowiedzi" ColumnName="ID_odpowiedzi" />
             <ScalarProperty Name="Tresc_odpowiedzi" ColumnName="Tresc_odpowiedzi" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Pytania"><EntityTypeMapping TypeName="PatternsDatabaseModel.Pytania"><MappingFragment StoreEntitySet="Pytania">
+          <EntitySetMapping Name="Pytania"><EntityTypeMapping TypeName="PatternsEntitiesModel.Pytania"><MappingFragment StoreEntitySet="Pytania">
             <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
             <ScalarProperty Name="Poziom_trudnosci" ColumnName="Poziom_trudnosci" />
             <ScalarProperty Name="Tresc_pytania" ColumnName="Tresc_pytania" />
             <ScalarProperty Name="Obrazek" ColumnName="Obrazek" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Pytania_Odpowiedzi"><EntityTypeMapping TypeName="PatternsDatabaseModel.Pytania_Odpowiedzi"><MappingFragment StoreEntitySet="Pytania_Odpowiedzi">
+          <EntitySetMapping Name="Pytania_Odpowiedzi"><EntityTypeMapping TypeName="PatternsEntitiesModel.Pytania_Odpowiedzi"><MappingFragment StoreEntitySet="Pytania_Odpowiedzi">
             <ScalarProperty Name="ID_odpowiedzi" ColumnName="ID_odpowiedzi" />
             <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
             <ScalarProperty Name="Czy_odp_ok" ColumnName="Czy_odp_ok" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Rozwiazane_quizy"><EntityTypeMapping TypeName="PatternsDatabaseModel.Rozwiazane_quizy"><MappingFragment StoreEntitySet="Rozwiazane_quizy">
+          <EntitySetMapping Name="Rozwiazane_quizy"><EntityTypeMapping TypeName="PatternsEntitiesModel.Rozwiazane_quizy"><MappingFragment StoreEntitySet="Rozwiazane_quizy">
             <ScalarProperty Name="ID_rozwiazanegoquizu" ColumnName="ID_rozwiazanegoquizu" />
             <ScalarProperty Name="Statusq" ColumnName="Statusq" />
             <ScalarProperty Name="Liczba_pytan" ColumnName="Liczba_pytan" />
@@ -227,17 +229,18 @@
             <ScalarProperty Name="ID_user" ColumnName="ID_user" />
             <ScalarProperty Name="Poziom_trudnosci" ColumnName="Poziom_trudnosci" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="PatternsDatabaseModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="PatternsEntitiesModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
             <ScalarProperty Name="name" ColumnName="name" />
             <ScalarProperty Name="principal_id" ColumnName="principal_id" />
             <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
             <ScalarProperty Name="version" ColumnName="version" />
             <ScalarProperty Name="definition" ColumnName="definition" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Uzytkownicy"><EntityTypeMapping TypeName="PatternsDatabaseModel.Uzytkownicy"><MappingFragment StoreEntitySet="Uzytkownicy">
+          <EntitySetMapping Name="Uzytkownicy"><EntityTypeMapping TypeName="PatternsEntitiesModel.Uzytkownicy"><MappingFragment StoreEntitySet="Uzytkownicy">
             <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+            <ScalarProperty Name="Username" ColumnName="Username" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Zadane_pytania"><EntityTypeMapping TypeName="PatternsDatabaseModel.Zadane_pytania"><MappingFragment StoreEntitySet="Zadane_pytania">
+          <EntitySetMapping Name="Zadane_pytania"><EntityTypeMapping TypeName="PatternsEntitiesModel.Zadane_pytania"><MappingFragment StoreEntitySet="Zadane_pytania">
             <ScalarProperty Name="ID_zadanegopytania" ColumnName="ID_zadanegopytania" />
             <ScalarProperty Name="ID_rozwiazanegoquizu" ColumnName="ID_rozwiazanegoquizu" />
             <ScalarProperty Name="ID_pytania" ColumnName="ID_pytania" />
@@ -263,14 +266,14 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="PatternsDatabaseModel">
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Odpowiedzi" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583331" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Pytania" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Pytania_Odpowiedzi" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Rozwiazane_quizy" Width="1.5" PointX="2.75" PointY="3.75" Height="2.5571907552083335" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Uzytkownicy" Width="1.5" PointX="4.75" PointY="3.75" Height="1.211080729166667" IsExpanded="true" />
-        <EntityTypeShape EntityType="PatternsDatabaseModel.Zadane_pytania" Width="1.5" PointX="4.75" PointY="5.75" Height="1.7879850260416674" IsExpanded="true" />
+      <Diagram Name="PatternsEntitiesModel">
+        <EntityTypeShape EntityType="PatternsEntitiesModel.Odpowiedzi" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583331" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsEntitiesModel.Pytania" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsEntitiesModel.Pytania_Odpowiedzi" Width="1.5" PointX="0.75" PointY="3.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsEntitiesModel.Rozwiazane_quizy" Width="1.5" PointX="2.75" PointY="3.75" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsEntitiesModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsEntitiesModel.Uzytkownicy" Width="1.5" PointX="4.75" PointY="3.75" Height="1.4033821614583322" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatternsEntitiesModel.Zadane_pytania" Width="1.5" PointX="6.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>
