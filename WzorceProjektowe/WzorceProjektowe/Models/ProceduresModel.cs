@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 
 namespace WzorceProjektowe.Models
 {
@@ -33,6 +34,7 @@ namespace WzorceProjektowe.Models
                 ctx.SaveChanges();
             }
         }
+
         public static int[] GetQuestionsOfLevel(int poziomQuizu)
         {
             using (PatternsEntities ctx = new PatternsEntities())
@@ -224,28 +226,55 @@ namespace WzorceProjektowe.Models
             }
         }
 
-        //metoda na razie nie działa
-        public static byte[] GetQuestionImg(int ID_pytania1)
-        {
-            int i = 0;
-            byte[] obr= new byte[byte.MaxValue];
-            using (PatternsEntities ctx = new PatternsEntities())
-            {
-                var contactQuery = from Pytania in ctx.Pytania
-                                   where Pytania.Obrazek!=null
-                                   select Pytania;
-                foreach (var result in contactQuery)
-                {
-                    if (result.ID_pytania == ID_pytania1)
-                    {
-                        obr[i]=result.Obrazek[i];
-                    }
-                    i++;
-                }
-                return obr;
-            }
-        }
+        //public static Image CreateImage(byte[] imageData)
+        //{
+        //    Image image;
+        //    using (MemoryStream inStream = new MemoryStream())
+        //    {
+        //        inStream.Write(imageData, 0, imageData.Length);
 
+        //        image = Bitmap.FromStream(inStream);
+        //    }
+
+        //    return image;
+        //}
+
+        ////metoda na razie nie działa
+        //public static Bitmap GetQuestionImg(int ID_pytania1)
+        //{
+
+        //    int i = 0;
+        //    byte[] obr = new byte[byte.MaxValue];
+        //    //Bitmap bmp;
+
+        //    using (PatternsEntities ctx = new PatternsEntities())
+        //    {
+        //        var contactQuery = from Pytania in ctx.Pytania
+        //                           where Pytania.Obrazek != null
+        //                           select Pytania;
+
+        //        foreach (var result in contactQuery)
+        //        {
+        //            if (result.ID_pytania == ID_pytania1)
+        //            {
+
+        //                obr = result.Obrazek;
+
+        //            }
+        //            i++;
+        //        }
+        //        Image img = CreateImage(obr);
+
+        //        //return File(obr, "image/jpeg");
+
+        //        Bitmap b = new Bitmap(img, img.Width, img.Height);
+
+        //        return b;
+        //    }
+        //}
+                //Graphics g = Graphics.FromImage(b);
+                //g.DrawImage(b, 0, 0);
+                
         public static void SetUserAnswer(int ID_zadanegopytania1,int ID_udzielonejodp1)
         {
             using (PatternsEntities ctx = new PatternsEntities())
@@ -257,8 +286,10 @@ namespace WzorceProjektowe.Models
                 {
                     result.ID_udzielonejodp = ID_udzielonejodp1;
                 }
+                ctx.SaveChanges();
             }
         }
+
 
         public static void AddUserAnswer(int ID_zadanegopytania1, int ID_rozwiazanegoquizu1, int ID_pytania1, int ID_udzielonejodp1)
         {
@@ -277,27 +308,58 @@ namespace WzorceProjektowe.Models
         //sprawdza czy udzielona odpowiedź na zadane pytanie jest prawidłowa
         public static bool IsAnswerRight(int ID_zadanegopytania1, int ID_udzielonejodp1)
         {
-            bool ok=false;
+            int popr = GetQuestionRightAnswer(ID_zadanegopytania1);
+            if (popr == ID_udzielonejodp1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public static void Result(int ID_rozwiazanegoquizu1)
+        {
             using (PatternsEntities ctx = new PatternsEntities())
             {
-                var contactQuery = from Pytania_Odpowiedzi in ctx.Pytania_Odpowiedzi
-                                   where Pytania_Odpowiedzi.ID_odpowiedzi==ID_udzielonejodp1
-                                   select Pytania_Odpowiedzi;
+                var contactQuery = from Zadane_pytania in ctx.Zadane_pytania
+                                   where Zadane_pytania.ID_rozwiazanegoquizu==ID_rozwiazanegoquizu1
+                                   select Zadane_pytania;
+                int liczbapytan=0;
+                int liczbapopr = 0;
+
                 foreach (var result in contactQuery)
                 {
-                    if (result.ID_pytania == ID_zadanegopytania1)
+                    liczbapytan++;
+                    if(IsAnswerRight(result.ID_pytania,result.ID_udzielonejodp))
                     {
-                        if (result.Czy_odp_ok == true)
-                        {
-                            ok = true;
-                        }
-                        else
-                        {
-                            ok = false;
-                        }
+                        liczbapopr++;
+                    }
+                    
+                }
+
+                var contactQuery1 = from Rozwiazane_quizy in ctx.Rozwiazane_quizy
+                                   where Rozwiazane_quizy.ID_rozwiazanegoquizu == ID_rozwiazanegoquizu1
+                                   select Rozwiazane_quizy;
+
+                foreach (var result in contactQuery1)
+                {
+                   // result.Liczba_pytan = liczbapytan;
+                    result.Liczba_poprodp = liczbapopr;
+                    result.Liczba_niepoprodp = liczbapytan - liczbapopr;
+                    result.Wynik = (liczbapopr / liczbapytan) * 100;
+                    if (result.Liczba_pytan == liczbapytan)
+                    {
+                        result.Statusq = true;
+                    }
+                    else
+                    {
+                        result.Statusq = false;
                     }
                 }
-               return ok;
+                ctx.SaveChanges();
             }
         }
 
