@@ -12,6 +12,10 @@ Procedury:
 2.GetQuestionOfLevel. 
   Na wejœciu: -int poziomQuizu
   Metoda zwraca listê pytañ(ich id), które maj¹ wybrany poziom trudnoœci
+  
+3.AskQuestion
+  Na wejœciu: int ID_pytania1, int ID_rozwi¹zanegoQiozu1
+  Metoda zabezpiecza losowanie tych samych pytañ. Dodaje rekord do tabeli zadane pytania dla danego quizu.
 
 3.IsQuestionGraphic.
   Na wejœciu: -int ID_pytania1
@@ -30,7 +34,11 @@ Procedury:
   Na wejœciu: -int ID_pytania1
   Metoda zwraca id poprawnej odpowiedzi dla zadanego pytania.
 
-7.GetQuestionImg ->na razie nie dzia³a
+7.GetQuestionImg
+  Na wejœciu: -int ID_pytania1
+  Metoda zwraca obrazek.
+  Wywo³uje siê je np w sposób nastêpuj¹cy:
+  <img src=@WzorceProjektowe.Models.ProceduresModels.GetQuestionImg(78) alt="Ziom"/>
 
 8.SerUserAnswer.
   Na wejœciu: -int ID_zadanegopytania1,

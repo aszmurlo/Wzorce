@@ -35,6 +35,42 @@ namespace WzorceProjektowe.Models
             }
         }
 
+        public static void AskQuestion(int ID_pytania1, int ID_rozwiązanegoQiozu1)
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                var contactQuery = from Rozwiazane_quizy in ctx.Rozwiazane_quizy
+                                   where Rozwiazane_quizy.ID_rozwiazanegoquizu == ID_rozwiązanegoQiozu1
+                                   select Rozwiazane_quizy;
+
+                foreach (var result in contactQuery)
+                {
+                    var contactQuery2 = from Zadane_pytania in ctx.Zadane_pytania
+                                        where Zadane_pytania.ID_pytania == ID_pytania1
+                                        select Zadane_pytania;
+
+                    foreach (var result2 in contactQuery2)
+                    {
+                        goto wynik2;
+                    }
+
+                    if (contactQuery2.Count() == 0)
+                    {
+                        goto wynik;
+                    }
+                    else
+                    {
+                        goto wynik;
+                    }
+                }
+            wynik:
+                Zadane_pytania e = new Zadane_pytania { ID_rozwiazanegoquizu = ID_rozwiązanegoQiozu1, ID_pytania = ID_pytania1, ID_udzielonejodp = -1 };
+                ctx.AddToZadane_pytania(e);
+                ctx.SaveChanges();
+            wynik2: ;
+            }
+        }
+
         public static int[] GetQuestionsOfLevel(int poziomQuizu)
         {
             using (PatternsEntities ctx = new PatternsEntities())
@@ -226,54 +262,21 @@ namespace WzorceProjektowe.Models
             }
         }
 
-        //public static Image CreateImage(byte[] imageData)
-        //{
-        //    Image image;
-        //    using (MemoryStream inStream = new MemoryStream())
-        //    {
-        //        inStream.Write(imageData, 0, imageData.Length);
-
-        //        image = Bitmap.FromStream(inStream);
-        //    }
-
-        //    return image;
-        //}
-
-        ////metoda na razie nie działa
-        //public static Bitmap GetQuestionImg(int ID_pytania1)
-        //{
-
-        //    int i = 0;
-        //    byte[] obr = new byte[byte.MaxValue];
-        //    //Bitmap bmp;
-
-        //    using (PatternsEntities ctx = new PatternsEntities())
-        //    {
-        //        var contactQuery = from Pytania in ctx.Pytania
-        //                           where Pytania.Obrazek != null
-        //                           select Pytania;
-
-        //        foreach (var result in contactQuery)
-        //        {
-        //            if (result.ID_pytania == ID_pytania1)
-        //            {
-
-        //                obr = result.Obrazek;
-
-        //            }
-        //            i++;
-        //        }
-        //        Image img = CreateImage(obr);
-
-        //        //return File(obr, "image/jpeg");
-
-        //        Bitmap b = new Bitmap(img, img.Width, img.Height);
-
-        //        return b;
-        //    }
-        //}
-                //Graphics g = Graphics.FromImage(b);
-                //g.DrawImage(b, 0, 0);
+        public static string GetQuestionImg(int ID_pytania1)
+        {
+            string obrazek = "/gfx/";
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                var contactQuery = from Pytania in ctx.Pytania
+                                   where Pytania.ID_pytania == ID_pytania1
+                                   select Pytania;
+                foreach (var result in contactQuery)
+                {
+                    obrazek += result.Obrazek;
+                }
+            }
+            return obrazek;
+        }
                 
         public static void SetUserAnswer(int ID_zadanegopytania1,int ID_udzielonejodp1)
         {
@@ -365,7 +368,7 @@ namespace WzorceProjektowe.Models
 
 
         //Dodawanie pytań i odpowiedzi na potrzeby wersji 5.0
-        public static void AddQuestion(int ID_pytania1,string Poziom_trudnosci1, string Tresc_pytania1, byte[] Obraz1, int ID_odp1,string Tresc_odp1, bool czy_odpok1)  
+        public static void AddQuestion(int ID_pytania1,string Poziom_trudnosci1, string Tresc_pytania1, string Obraz1, int ID_odp1,string Tresc_odp1, bool czy_odpok1)  
         {
             using (PatternsEntities ctx = new PatternsEntities())
             {

@@ -52,6 +52,9 @@ CREATE TABLE Pytania
 	)
 GO
 
+ALTER TABLE Pytania alter column Obrazek VARCHAR(500);
+GO
+
 CREATE TABLE Odpowiedzi
 (
 	ID_odpowiedzi INT not null IDENTITY(1,1),
