@@ -109,33 +109,33 @@ INSERT INTO Pytania (Poziom_trudnosci,Tresc_pytania,Obrazek) VALUES ('trudne','K
 GO
 
 --obrazki (---------TRZEBA POPRAWIC ŒCIE¯KÊ NA SWOJ¥!--------)
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\01cre_singleton.png' WHERE ID_pytania = 76;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\02cre_factory.png' WHERE ID_pytania = 77;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\03cre_prototype.png' WHERE ID_pytania = 78;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\04cre_abstractfactory.png' WHERE ID_pytania = 79;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\05cre_builder.png' WHERE ID_pytania = 80;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\06str_proxy.png' WHERE ID_pytania = 81;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\07str_facade.png' WHERE ID_pytania = 82;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\08str_flyweight.png' WHERE ID_pytania = 83;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\09str_decorator.png' WHERE ID_pytania = 84;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\10str_composite.png' WHERE ID_pytania = 85;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\11str_adapter.png' WHERE ID_pytania = 86;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\12str_bridge.png' WHERE ID_pytania = 87;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\13beh_iterator.png' WHERE ID_pytania = 88;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\14beh_interpreter.png' WHERE ID_pytania = 89;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\15beh_chainofresponsibility.png' WHERE ID_pytania = 90;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\16beh_mediator.png' WHERE ID_pytania = 91;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\17beh_templatemethod.png' WHERE ID_pytania = 92;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\18beh_observer.png' WHERE ID_pytania = 93;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\19beh_visitor.png' WHERE ID_pytania = 94;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\20beh_memento.png' WHERE ID_pytania = 95;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\21beh_state.png' WHERE ID_pytania = 96;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\22beh_strategy.png' WHERE ID_pytania = 97;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\23beh_command.png' WHERE ID_pytania = 98;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\24beh_activeobject.png' WHERE ID_pytania = 99;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\25beh_mvc.png' WHERE ID_pytania = 100;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\26beh_mvp.png' WHERE ID_pytania = 101;
-UPDATE Pytania SET Obrazek = N'C:\Users\Incoobus\Documents\GitHub\Wzorce\content\gfx\27beh_mvvm.png' WHERE ID_pytania = 102;
+UPDATE Pytania SET Obrazek = N'01cre_singleton.png' WHERE ID_pytania = 76;
+UPDATE Pytania SET Obrazek = N'02cre_factory.png' WHERE ID_pytania = 77;
+UPDATE Pytania SET Obrazek = N'03cre_prototype.png' WHERE ID_pytania = 78;
+UPDATE Pytania SET Obrazek = N'04cre_abstractfactory.png' WHERE ID_pytania = 79;
+UPDATE Pytania SET Obrazek = N'05cre_builder.png' WHERE ID_pytania = 80;
+UPDATE Pytania SET Obrazek = N'06str_proxy.png' WHERE ID_pytania = 81;
+UPDATE Pytania SET Obrazek = N'07str_facade.png' WHERE ID_pytania = 82;
+UPDATE Pytania SET Obrazek = N'08str_flyweight.png' WHERE ID_pytania = 83;
+UPDATE Pytania SET Obrazek = N'09str_decorator.png' WHERE ID_pytania = 84;
+UPDATE Pytania SET Obrazek = N'10str_composite.png' WHERE ID_pytania = 85;
+UPDATE Pytania SET Obrazek = N'11str_adapter.png' WHERE ID_pytania = 86;
+UPDATE Pytania SET Obrazek = N'12str_bridge.png' WHERE ID_pytania = 87;
+UPDATE Pytania SET Obrazek = N'13beh_iterator.png' WHERE ID_pytania = 88;
+UPDATE Pytania SET Obrazek = N'14beh_interpreter.png' WHERE ID_pytania = 89;
+UPDATE Pytania SET Obrazek = N'15beh_chainofresponsibility.png' WHERE ID_pytania = 90;
+UPDATE Pytania SET Obrazek = N'16beh_mediator.png' WHERE ID_pytania = 91;
+UPDATE Pytania SET Obrazek = N'17beh_templatemethod.png' WHERE ID_pytania = 92;
+UPDATE Pytania SET Obrazek = N'18beh_observer.png' WHERE ID_pytania = 93;
+UPDATE Pytania SET Obrazek = N'19beh_visitor.png' WHERE ID_pytania = 94;
+UPDATE Pytania SET Obrazek = N'20beh_memento.png' WHERE ID_pytania = 95;
+UPDATE Pytania SET Obrazek = N'21beh_state.png' WHERE ID_pytania = 96;
+UPDATE Pytania SET Obrazek = N'22beh_strategy.png' WHERE ID_pytania = 97;
+UPDATE Pytania SET Obrazek = N'23beh_command.png' WHERE ID_pytania = 98;
+UPDATE Pytania SET Obrazek = N'24beh_activeobject.png' WHERE ID_pytania = 99;
+UPDATE Pytania SET Obrazek = N'25beh_mvc.png' WHERE ID_pytania = 100;
+UPDATE Pytania SET Obrazek = N'26beh_mvp.png' WHERE ID_pytania = 101;
+UPDATE Pytania SET Obrazek = N'27beh_mvvm.png' WHERE ID_pytania = 102;
 GO
 
 TRUNCATE TABLE Odpowiedzi
