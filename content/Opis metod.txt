@@ -1,0 +1,80 @@
+Procedury:
+1.AddQuiz wprowadzamy:-int ID_user1
+		      -bool statusq1
+                      -int liczba_pytan1
+                      -int poziom_trudnosci1
+                      -int liczba_poprodp1
+                      -liczba_niepoprodp1
+                      -decimal wynik1
+          
+  Jest to zwyk³y insert Quizu do bazy danych
+
+2.GetQuestionOfLevel. 
+  Na wejœciu: -int poziomQuizu
+  Metoda zwraca listê pytañ(ich id), które maj¹ wybrany poziom trudnoœci
+  
+3.AskQuestion
+  Na wejœciu: int ID_pytania1, int ID_rozwi¹zanegoQiozu1
+  Metoda zabezpiecza losowanie tych samych pytañ. Dodaje rekord do tabeli zadane pytania dla danego quizu.
+
+3.IsQuestionGraphic.
+  Na wejœciu: -int ID_pytania1
+  Metoda zwraca wartoœæ true jeœli zadane pytanie jest w formie obrazka
+
+4.GetQuestionContent.
+  Na wejœciu: -int ID_pytania1
+  Metoda zwraca treœæ dla id zadanego pytania. W przypadku, gdy zadane pytanie jest w formie obrazka, metoda
+  zwraca wartoœæ null.
+
+5.GetQuestionAnswers.
+  Na wejœciu: -int ID_pytania1
+  Metoda zwraca listê id odpowiedzi dla zadanego pytania.
+
+6.GetQuestionRightAnswer.
+  Na wejœciu: -int ID_pytania1
+  Metoda zwraca id poprawnej odpowiedzi dla zadanego pytania.
+
+7.GetQuestionImg
+  Na wejœciu: -int ID_pytania1
+  Metoda zwraca obrazek.
+  Wywo³uje siê je np w sposób nastêpuj¹cy:
+  <img src=@WzorceProjektowe.Models.ProceduresModels.GetQuestionImg(78) alt="Ziom"/>
+
+8.SerUserAnswer.
+  Na wejœciu: -int ID_zadanegopytania1,
+	      -int ID_udzielonejodp1
+  Metoda robi update na wartoœci udzielonej odpowiedzi dla zadanego pytania w tabeli Zadane_pytania
+
+9.AddUserAnswer.
+  Na wejœciu: -int ID_zadanegopytania1, 
+	      -int ID_rozwiazanegoquizu1, 
+              -int ID_pytania1, 
+              -int ID_udzielonejodp1
+  Zwyk³y insert odpowiedzi do tabeli Zadane_pytania
+
+10.IsAnswerRight.
+  Na wejœciu: -int ID_zadanegopytania1, 
+	      -int ID_udzielonejodp1
+  Metoda zwraca wartoœæ true jeœli odpowiedŸ na zadane pytanie jest prawid³owa i false jeœli nie.
+
+11.Result.
+  Na wejœciu: -int ID_rozwiazanegoquizu1
+  Metoda robi update na polach liczba_poprodp,liczba_niepoprodp,wynik,status w tabeli Rozwiazane_quizy na podstawie
+  pól z tabeli Zadane_pytania.
+
+12.AddToUzytkownicy.
+  Na wejœciu: -string username1
+  Metoda wykorzystywana przy rejestracji. Wywo³ywana w AccountController.cs . Automatycznie przy rejestracji nazwa u¿ytkownika
+  dodawana jest do bazy danych do tabeli Uzytkownicy.
+
+
+13. Dodawanie pytañ i odpowiedzi na potrzeby wersji 5.0
+    AddQuestion.
+    Na wejœciu:-int ID_pytania1,
+	-string Poziom_trudnosci1, 
+	-string Tresc_pytania1, 
+	-byte[] Obraz1, 
+	-int ID_odp1,string Tresc_odp1, 
+	-bool czy_odpok1
+
+    Insert pytañ

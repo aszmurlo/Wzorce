@@ -5,3 +5,17 @@ C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\Entit
 C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.csprojResolveAssemblyReference.cache
 C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.dll
 C:\Users\Mus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.pdb
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.dll
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.pdb
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.dll
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.xml
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.dll
+C:\Users\Incoobus\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.pdb
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.dll
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.pdb
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.dll
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.xml
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.dll
+C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.pdb
