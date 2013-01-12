@@ -22,5 +22,8 @@ namespace WzorceProjektowe.Models
 
         [Required]
         public int QuestionNumber { get; set; }
+
+        [Required]
+        public Quiz Quiz { get; set; }
     }
 }

@@ -72,7 +72,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\DataBaseHelper.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\ProceduresModel.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Models\QuizBuilder.cs" />
     <Compile Include="Models\QuizSettingsModel.cs" />
     <Compile Include="Models\LocalStatisticsModel.cs" />
     <Compile Include="Models\GlobalStatisticsModel.cs" />
@@ -173,7 +177,12 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Quiz\DisplayQuiz.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

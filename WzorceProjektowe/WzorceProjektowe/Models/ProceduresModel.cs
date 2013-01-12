@@ -38,36 +38,10 @@ namespace WzorceProjektowe.Models
         public static void AskQuestion(int ID_pytania1, int ID_rozwiązanegoQiozu1)
         {
             using (PatternsEntities ctx = new PatternsEntities())
-            {
-                var contactQuery = from Rozwiazane_quizy in ctx.Rozwiazane_quizy
-                                   where Rozwiazane_quizy.ID_rozwiazanegoquizu == ID_rozwiązanegoQiozu1
-                                   select Rozwiazane_quizy;
-
-                foreach (var result in contactQuery)
-                {
-                    var contactQuery2 = from Zadane_pytania in ctx.Zadane_pytania
-                                        where Zadane_pytania.ID_pytania == ID_pytania1
-                                        select Zadane_pytania;
-
-                    foreach (var result2 in contactQuery2)
-                    {
-                        goto wynik2;
-                    }
-
-                    if (contactQuery2.Count() == 0)
-                    {
-                        goto wynik;
-                    }
-                    else
-                    {
-                        goto wynik;
-                    }
-                }
-            wynik:
+            {       
                 Zadane_pytania e = new Zadane_pytania { ID_rozwiazanegoquizu = ID_rozwiązanegoQiozu1, ID_pytania = ID_pytania1, ID_udzielonejodp = -1 };
                 ctx.AddToZadane_pytania(e);
                 ctx.SaveChanges();
-            wynik2: ;
             }
         }
 
@@ -219,6 +193,37 @@ namespace WzorceProjektowe.Models
                     }
                 }
                 return wynik;
+            }
+        }
+
+
+        public static Dictionary<int, string> GetQuestionAnswersString(int ID_pytania1)
+        {
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                int[] lista = new int[4];
+                int i = 0;
+                var contactQuery = from Pytania_Odpowiedzi in ctx.Pytania_Odpowiedzi
+                                   where Pytania_Odpowiedzi.ID_pytania == ID_pytania1
+                                   select Pytania_Odpowiedzi;
+                foreach (var result in contactQuery)
+                {
+                    if (result.ID_pytania == ID_pytania1)
+                    {
+                        lista[i] = result.ID_odpowiedzi;
+                        var contactQuery2 = from Odpowiedzi in ctx.Odpowiedzi
+                                            where Odpowiedzi.ID_odpowiedzi == result.ID_odpowiedzi
+                                           select Odpowiedzi.Tresc_odpowiedzi;
+                        foreach (var result2 in contactQuery2)
+                        {
+                            dictionary[result.ID_odpowiedzi] = result2;
+                        }
+
+                    }
+                    i++;
+                }
+                return dictionary;
             }
         }
 

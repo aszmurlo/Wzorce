@@ -19,3 +19,10 @@ C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\E
 C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.dll
 C:\Users\Justyna\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.pdb
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.dll
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\WzorceProjektowe.pdb
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.dll
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\bin\EntityFramework.xml
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.dll
+C:\Users\Agnieszka\Documents\GitHub\Wzorce\WzorceProjektowe\WzorceProjektowe\obj\Debug\WzorceProjektowe.pdb

@@ -22,7 +22,15 @@ namespace WzorceProjektowe.Controllers
         [HttpPost]
         public ActionResult Index(QuizSettingsModel model)
         {
-            ViewBag.Message = "Wybrano quiz składający się z " + model.QuestionNumber + " pytań o poziomie trudności: " + model.Difficulty+".";
+            return RedirectToAction("DisplayQuiz", model);
+
+        }
+
+        public ActionResult DisplayQuiz(QuizSettingsModel model)
+        {
+            model.Quiz = new QuizBuilder().buildQuiz(model.Difficulty, model.QuestionNumber);
+          //  DatabaseHelper dbHelper = new DatabaseHelper(model.Quiz);
+
             return View(model);
         }
 
