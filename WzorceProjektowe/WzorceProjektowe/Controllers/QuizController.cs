@@ -34,5 +34,10 @@ namespace WzorceProjektowe.Controllers
             return View(model);
         }
 
+        public ActionResult Results()
+        {
+            //model.RButtonChecked1 = new 
+            return View();
+        }
     }
 }

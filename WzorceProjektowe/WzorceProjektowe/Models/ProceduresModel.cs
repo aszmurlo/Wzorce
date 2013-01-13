@@ -196,6 +196,42 @@ namespace WzorceProjektowe.Models
             }
         }
 
+        public static int GetUserId(string UserName)
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                int id = 0;
+                var contactQuery = from Uzytkownicy in ctx.Uzytkownicy
+                                   where Uzytkownicy.Username == UserName
+                                   select Uzytkownicy;
+                foreach (var result in contactQuery)
+                {
+                    id = result.ID_user;
+                }
+                return id;
+            }
+        }
+
+        public static int GetQuizId()
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                int id = 0;
+                int k = 0;
+                var contactQuery = from Rozwiazane_quizy in ctx.Rozwiazane_quizy
+                                   select Rozwiazane_quizy;
+                foreach (var result in contactQuery)
+                {
+                    if (k == contactQuery.Count()-1)
+                    {
+                        id = result.ID_rozwiazanegoquizu;
+                    }
+                    k++;
+                }
+                return id;
+            }
+        }
+
 
         public static Dictionary<int, string> GetQuestionAnswersString(int ID_pytania1)
         {

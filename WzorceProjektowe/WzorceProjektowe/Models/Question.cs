@@ -17,13 +17,18 @@ namespace WzorceProjektowe.Models
        public string Text { get; set; }
        public string Img { get; set; }
 
+       public Question(int userAnswer)
+       {
+           this.UserAnswer = userAnswer;
+       }
+
        public Question(int id, int rightAnswer, List<string> answers, string text,  string img)
        {
            this.Answers = answers;
            this.RightAnswer = rightAnswer;
            this.Text = text;
            this.Id = id;
-           this.UserAnswer = -1;
+           this.UserAnswer = 0;
            this.Img = img;
 
        }
