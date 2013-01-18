@@ -8,6 +8,7 @@ namespace WzorceProjektowe.Models
     /// <summary>
     /// Klasa reprezentujaca jedno pytanie quizu
     /// </summary>
+   [Serializable]
    public class Question
     {
        public int RightAnswer{ get; set;}
@@ -16,6 +17,11 @@ namespace WzorceProjektowe.Models
        public List<string> Answers { get; set; }
        public string Text { get; set; }
        public string Img { get; set; }
+
+  
+       public Question()
+       {
+       }
 
        public Question(int userAnswer)
        {

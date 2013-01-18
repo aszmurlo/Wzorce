@@ -42,7 +42,7 @@ Procedury:
 
 8.SerUserAnswer.
   Na wejœciu: -int ID_zadanegopytania1,
-	      -int ID_udzielonejodp1
+			-int ID_udzielonejodp1
   Metoda robi update na wartoœci udzielonej odpowiedzi dla zadanego pytania w tabeli Zadane_pytania
 
 9.AddUserAnswer.

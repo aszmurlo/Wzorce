@@ -72,8 +72,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\RButtonCheckedSettingsModel.cs" />
-    <Compile Include="Models\RButtonChecked.cs" />
     <Compile Include="Models\DataBaseHelper.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\ProceduresModel.cs" />
@@ -188,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Quiz\Results.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

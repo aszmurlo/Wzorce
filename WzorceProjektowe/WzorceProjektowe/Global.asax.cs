@@ -20,11 +20,23 @@ namespace WzorceProjektowe
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            /*
+            routes.MapRoute(
+                "Quiz", // Route name
+                "{Quiz}/{DisplayQuiz}", // URL with parameters
+                new { controller = "Quiz", action = "DisplayQuiz" } // Parameter defaults
+            );
 
             routes.MapRoute(
+           "Results", // Route name
+           "{Quiz}/{DisplayQuiz}", // URL with parameters
+           new { controller = "Quiz", action = "Results" } // Parameter defaults
+       );
+            */
+            routes.MapRoute(
                 "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                "{controller}/{action}", // URL with parameters
+                new { controller = "Home", action = "Index"} // Parameter defaults
             );
 
         }

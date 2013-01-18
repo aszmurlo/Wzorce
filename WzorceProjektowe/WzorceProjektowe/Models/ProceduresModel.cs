@@ -284,6 +284,24 @@ namespace WzorceProjektowe.Models
             }
         }
 
+        public static int[] GetAnswers(int ID_quizu1)
+        {
+            using (PatternsEntities ctx = new PatternsEntities())
+            {
+                int[] lista = new int[25];
+                int i = 0;
+                var contactQuery = from Zadane_pytania in ctx.Zadane_pytania
+                                   where Zadane_pytania.ID_rozwiazanegoquizu == ID_quizu1
+                                   select Zadane_pytania;
+                foreach (var result in contactQuery)
+                {
+                    lista[i] = result.ID_udzielonejodp;
+                    i++;
+                }
+                return lista;
+            }
+        }
+
         public static int GetQuestionRightAnswer(int ID_pytania1)
         {
             int ans=0;
@@ -319,28 +337,31 @@ namespace WzorceProjektowe.Models
             return obrazek;
         }
                 
-        public static void SetUserAnswer(int ID_zadanegopytania1,int ID_udzielonejodp1)
+        public static void SetUserAnswer(int ID_rozwiazanegoquizu1, int ID_zadanegopytania1,int ID_udzielonejodp1)
         {
             using (PatternsEntities ctx = new PatternsEntities())
             {
                 var contactQuery = from Zadane_pytania in ctx.Zadane_pytania
-                                   where Zadane_pytania.ID_zadanegopytania == ID_zadanegopytania1
+                                   where Zadane_pytania.ID_pytania == ID_zadanegopytania1
                                    select Zadane_pytania;
                 foreach (var result in contactQuery)
                 {
-                    result.ID_udzielonejodp = ID_udzielonejodp1;
+                    if (result.ID_rozwiazanegoquizu == ID_rozwiazanegoquizu1)
+                    {
+                        result.ID_udzielonejodp = ID_udzielonejodp1;
+                    }
                 }
                 ctx.SaveChanges();
             }
         }
 
 
-        public static void AddUserAnswer(int ID_zadanegopytania1, int ID_rozwiazanegoquizu1, int ID_pytania1, int ID_udzielonejodp1)
+        public static void AddUserAnswer(int ID_rozwiazanegoquizu1, int ID_pytania1, int ID_udzielonejodp1)
         {
             using (PatternsEntities ctx = new PatternsEntities())
             {
                 //Create new Emp object
-                Zadane_pytania zadpyt = new Zadane_pytania { ID_zadanegopytania = ID_zadanegopytania1, ID_rozwiazanegoquizu = ID_rozwiazanegoquizu1, ID_pytania = ID_pytania1, ID_udzielonejodp = ID_udzielonejodp1 };
+                Zadane_pytania zadpyt = new Zadane_pytania { ID_rozwiazanegoquizu = ID_rozwiazanegoquizu1, ID_pytania = ID_pytania1, ID_udzielonejodp = ID_udzielonejodp1 };
                 //Add to memory
                 ctx.AddToZadane_pytania(zadpyt);
                 //Save to database

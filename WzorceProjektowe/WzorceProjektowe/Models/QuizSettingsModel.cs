@@ -17,13 +17,16 @@ namespace WzorceProjektowe.Models
             HelloMsg = "Quiz Settings Page";
         }
 
-        [Required]
-        public int Difficulty { get; set; }
+            [Required]
+            public int Difficulty { get; set; }
 
-        [Required]
-        public int QuestionNumber { get; set; }
+            [Required]
+            public int QuestionNumber { get; set; }
 
         [Required]
         public Quiz Quiz { get; set; }
+
+        [Required]
+        public bool Answered { get; set; }
     }
 }
