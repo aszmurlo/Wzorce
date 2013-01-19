@@ -815,7 +815,7 @@ INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (98,
 
 INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (99,174,0);
 INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (99,25,0);
-INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (99,174,0);
+INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (99,173,0);
 INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (99,175,1);
 
 INSERT INTO Pytania_Odpowiedzi (ID_pytania,ID_odpowiedzi,Czy_odp_ok) VALUES (100,46,1);
