@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Quiz";
+    Layout = "~/Views/Shared/_LayoutQuiz.cshtml";
+}
+
+@model WzorceProjektowe.Models.Quiz
+
+           
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>
+   Wynik quizu
+    </h1>
+
+    <p>Liczba pytań: @{@Model.Questions.Count();}</p>
+    <p>
+    Liczba poprawnych odpowiedzi: @{
+        int liczba = 0;
+        int[] odpowiedzi = new int[25];
+        odpowiedzi = WzorceProjektowe.Models.ProceduresModels.GetAnswers(WzorceProjektowe.Models.ProceduresModels.GetQuizId());
+        for (int i = 0; i < @Model.Questions.Count(); i++)
+        {
+            
+            if (WzorceProjektowe.Models.ProceduresModels.IsAnswerRight(@Model.Questions[i].Id, odpowiedzi[i]))
+            {
+                liczba++;
+            }
+            
+        }
+        Write(liczba.ToString());
+        }
+    </p>
+    <p>
+    <font color="maroon">Błędnie zaznaczone odpowiedzi</font>, <br /><b>prawidłowa odpowiedź, którą powinno się zaznaczyć</b>.<br />
+    Niepoprawne odpowiedzi:<br />
+    @{
+        int[] odpowiedzi2 = new int[25];
+        odpowiedzi2 = WzorceProjektowe.Controllers.QuizController.getOdpowiedzi();
+
+        int[] odpowiedzi3 = new int[4];
+
+            for (int i = 0; i < @Model.Questions.Count(); i++)
+            {
+                if (WzorceProjektowe.Models.ProceduresModels.IsAnswerRight(@Model.Questions[i].Id, odpowiedzi[i])==false)
+            {
+                
+                
+                odpowiedzi3 = WzorceProjektowe.Models.ProceduresModels.GetQuestionAnswers(@Model.Questions[i].Id);
+                if (@Model.Questions[i].Img == null)
+                {
+        <div>
+
+         <p> @Model.Questions[i].Text</p>
+
+          @for (int j = 0; j < @Model.Questions[i].Answers.Count; j++)
+          {
+              
+              if (WzorceProjektowe.Models.ProceduresModels.IsAnswerRight(@Model.Questions[i].Id, odpowiedzi[i]) == false)
+              {
+                  if (odpowiedzi2[i] == j)
+                  {
+                 @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)<font color="maroon">@Model.Questions[i].Answers.ElementAt(j)</font><br />
+                  }
+                  else
+                  {
+                      if (WzorceProjektowe.Models.ProceduresModels.IsAnswerRight(@Model.Questions[i].Id, odpowiedzi3[j]))
+                      {
+                      @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)<b>@Model.Questions[i].Answers.ElementAt(j)</b><br />
+                      }
+                      else
+                      {
+                          @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)@Model.Questions[i].Answers.ElementAt(j)<br />
+                      }
+                  }
+              }
+              else
+              {
+                  @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)@Model.Questions[i].Answers.ElementAt(j)<br />
+              }
+          }</div>
+                }
+                else
+                {
+        <div>
+         <p> @Model.Questions[i].Text</p>
+          <div><p><img src="@Model.Questions[i].Img"/></p></div>   
+          @for (int j = 0; j < @Model.Questions[i].Answers.Count; j++)
+          {
+              if (WzorceProjektowe.Models.ProceduresModels.IsAnswerRight(@Model.Questions[i].Id, odpowiedzi[i]) == false)
+              {
+                  if (odpowiedzi2[i] == j)
+                  {
+                 @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)<font color="maroon">@Model.Questions[i].Answers.ElementAt(j)</font><br />
+                  }
+                  else
+                  {
+                      if (WzorceProjektowe.Models.ProceduresModels.IsAnswerRight(@Model.Questions[i].Id, odpowiedzi3[j]))
+                      {
+                      @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)<b>@Model.Questions[i].Answers.ElementAt(j)</b><br />
+                      }
+                      else
+                      {
+                          @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)@Model.Questions[i].Answers.ElementAt(j)<br />
+                      }
+                  }
+              }
+              else
+              {
+                  @Html.RadioButtonFor(quiz => quiz.Questions[i].UserAnswer, -1)@Model.Questions[i].Answers.ElementAt(j)<br />
+              }
+          }</div>
+
+                }
+
+            }
+            }
+            }
+    </p>
+
+</body>
+</html>

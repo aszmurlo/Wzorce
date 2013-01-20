@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WzorceProjektowe.Controllers.AccountController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgIAAAAAAAAAAAAABAAAEAAAAAAQAIAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Controllers.HomeController" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAEAgAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Controllers.QuizController" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAACIAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\QuizController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Controllers.StatisticsController" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\StatisticsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.MvcApplication" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIQAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.PatternsEntities" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAiAAAAMgAAskBQAAAIAEAAABgCBAlAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Odpowiedzi" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgEBgAAACAAQAEAAAAAAAAAgIAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Pytania" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAgAgAAAQAAAEAAAAAAAAIAgTABAABAAAAAAAoQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Pytania_Odpowiedzi" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAABBAAAACAAUAEAAQAAAAAARAgAAAIAAAAABAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Rozwiazane_quizy" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAEAAQeCAQggFkAAoAIAAgJAAAAFIYAABQgAAhAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.sysdiagrams" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASICAMAABEIAAAIAAggAAQFIAFUAAAAAAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Uzytkownicy" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAQAAAACAAAQIAAAAEAAAAAAAIAAAAAAAAgAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Zadane_pytania" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAgAAAAEAAACCkkACAAAAgAAAQRAEAEABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.ChangePasswordModel" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.LogOnModel" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.RegisterModel" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.DatabaseHelper" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DataBaseHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.GlobalStatisticsModel" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GlobalStatisticsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.LocalStatisticsModel" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LocalStatisticsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.ProceduresModels" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIoEAAAQAAACAAAAADCAAQAwACAAABAQAQCAAAAAQA=</HashCode>
+      <FileName>Models\ProceduresModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.Question" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAAAACAAAAAAAAAAAAAAAQAAACAAAAAA=</HashCode>
+      <FileName>Models\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.Quiz" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Quiz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.QuizBuilder" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIBEAAAAAAAAAAAAAIAAAAAAAAAAAAQAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\QuizBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.QuizSettingsModel" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\QuizSettingsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.RButtonChecked" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RButtonChecked.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Models.RButtonCheckedSettingsModel" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RButtonCheckedSettingsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WzorceProjektowe.Class1">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Class2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="WzorceProjektowe.Class2">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

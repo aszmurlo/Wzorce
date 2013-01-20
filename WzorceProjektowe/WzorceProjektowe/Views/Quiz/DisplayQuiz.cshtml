@@ -16,7 +16,13 @@
     <h1>
    Rozwiąż quiz
     </h1>
-    @for (int i = 0; i < @Model.Quiz.Questions.Count; i++)
+
+    @{
+    Html.BeginForm("DisplayQuiz", "Quiz", "POST");
+
+    @Html.HiddenFor(x => x.Answered, true)
+       
+    for (int i = 0; i < @Model.Quiz.Questions.Count; i++)
     {
         if (@Model.Quiz.Questions[i].Img == null)
         {
@@ -24,9 +30,9 @@
          <p> @Model.Quiz.Questions[i].Text</p>
 
           @for (int j = 0; j < @Model.Quiz.Questions[i].Answers.Count; j++)
-         {
-                 @Html.RadioButtonFor(quiz => @Model.Quiz.Questions[i].UserAnswer, j)@Model.Quiz.Questions[i].Answers.ElementAt(j)<br />
-         }</div>
+          {
+                 @Html.RadioButtonFor(quiz => quiz.Quiz.Questions[i].UserAnswer, j)@Model.Quiz.Questions[i].Answers.ElementAt(j)<br />
+          }</div>
         }
         else
         {
@@ -34,11 +40,18 @@
          <p> @Model.Quiz.Questions[i].Text</p>
           <div><p><img src="@Model.Quiz.Questions[i].Img"/></p></div>   
           @for (int j = 0; j < @Model.Quiz.Questions[i].Answers.Count; j++)
-         {
-            @Html.RadioButtonFor(quiz => @Model.Quiz.Questions[i].UserAnswer, j)@Model.Quiz.Questions[i].Answers.ElementAt(j)<br />
-         }</div>
+          {
+            @Html.RadioButtonFor(quiz => quiz.Quiz.Questions[i].UserAnswer, j)@Model.Quiz.Questions[i].Answers.ElementAt(j)<br />
+          }</div>
 
         }
+
     }
+       
+
+     <div id="maincenter"><p><input type="submit" value="OK" style="cursor:pointer"/></p></div> 
+        }
+     
+     
 </body>
 </html>

@@ -1,6 +1,6 @@
 Procedury:
 1.AddQuiz wprowadzamy:-int ID_user1
-		      -bool statusq1
+					  -bool statusq1
                       -int liczba_pytan1
                       -int poziom_trudnosci1
                       -int liczba_poprodp1
@@ -42,7 +42,7 @@ Procedury:
 
 8.SerUserAnswer.
   Na wejœciu: -int ID_zadanegopytania1,
-	      -int ID_udzielonejodp1
+			-int ID_udzielonejodp1
   Metoda robi update na wartoœci udzielonej odpowiedzi dla zadanego pytania w tabeli Zadane_pytania
 
 9.AddUserAnswer.

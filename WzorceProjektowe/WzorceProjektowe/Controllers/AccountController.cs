@@ -11,6 +11,9 @@ namespace WzorceProjektowe.Controllers
 {
     public class AccountController : Controller
     {
+        //Utworzenie obiektu klasy QuizBuilder aby pobrać zalogowanego UserId
+
+        QuizBuilder qb = new QuizBuilder();
 
         //
         // GET: /Account/LogOn
@@ -30,6 +33,7 @@ namespace WzorceProjektowe.Controllers
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
+                    qb.getUserId(WzorceProjektowe.Models.ProceduresModels.GetUserId(model.UserName));
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
@@ -81,19 +85,23 @@ namespace WzorceProjektowe.Controllers
                 MembershipCreateStatus createStatus;
                 Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
 
+                qb.getUserId(WzorceProjektowe.Models.ProceduresModels.GetUserId(model.UserName));
+
                 WzorceProjektowe.Models.ProceduresModels.AddToUzytkownicy(model.UserName);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    qb.getUserId(WzorceProjektowe.Models.ProceduresModels.GetUserId(model.UserName));
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
+                    qb.getUserId(WzorceProjektowe.Models.ProceduresModels.GetUserId(model.UserName));
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
-
+            qb.getUserId(WzorceProjektowe.Models.ProceduresModels.GetUserId(model.UserName));
             // If we got this far, something failed, redisplay form
             return View(model);
         }
