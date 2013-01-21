@@ -35,8 +35,8 @@ namespace WzorceProjektowe.Controllers
         {
             if (!model.Answered)
             {
-
-                model.Quiz = new QuizBuilder().buildQuiz(model.Difficulty, model.QuestionNumber);
+                
+                model.Quiz = new QuizBuilder().buildQuiz(model.Difficulty, model.QuestionNumber, User.Identity.Name);
                 Session["dd"] = model.Quiz;
                 this.HttpContext.Items.Add("QuizSettings", model);
                 return View(model);

@@ -3,6 +3,8 @@
     Layout = "~/Views/Shared/_LayoutQuiz.cshtml";
 }
 
+@using System.Web.Mvc.Html
+@using WzorceProjektowe.Models
 @model WzorceProjektowe.Models.Quiz
 
            
@@ -34,6 +36,7 @@
             
         }
         Write(liczba.ToString());
+        ProceduresModels.GradeQuiz(liczba /(double)Model.Questions.Count());
         }
     </p>
     <p>

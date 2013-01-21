@@ -1,4 +1,5 @@
-﻿@if(Request.IsAuthenticated) {
+﻿@using System.Web.Mvc.Html
+@if(Request.IsAuthenticated) {
     <text>Witaj <strong>@User.Identity.Name</strong>!
     [ @Html.ActionLink("Wylogowanie", "LogOff", "Account") ]</text>
 }

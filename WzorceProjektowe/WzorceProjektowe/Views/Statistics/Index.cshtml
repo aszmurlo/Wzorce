@@ -6,4 +6,34 @@
            
 <h2>@ViewBag.Message</h2>
 
-<p>Total Quiz Count to @Model.TotalQuizCount</p>
+<h3>Globalne</h3>
+
+<table>
+    <tr>
+        <th>Użytkownik</th>
+        <th>Średni wynik</th>
+    </tr>
+    @foreach (var entry in Model.HighScoreEntries)
+    {
+        <tr>
+            <td>@entry.Name</td>
+            <td>@entry.Result.ToString("F2")</td>
+        </tr>
+    }
+</table>
+
+<h3>Lokalne</h3>
+
+<table>
+    <tr>
+        <th>Poziom</th>
+        <th>Wynik</th>
+    </tr>
+    @foreach (var entry in Model.DifficultyHighscoreEntries)
+    {
+        <tr>
+            <td>@entry.Name</td>
+            <td>@entry.Result.ToString("F2")</td>
+        </tr>
+    }
+</table>

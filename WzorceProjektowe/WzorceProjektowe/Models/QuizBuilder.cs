@@ -13,10 +13,10 @@ namespace WzorceProjektowe.Models
         public static int UserId1;
         public static int IdRozwiazywanegoQuizu;
         public static IEnumerable<int> randomIdsGlob;
-        public Quiz buildQuiz(int level, int numOfQuestions)
+        public Quiz buildQuiz(int level, int numOfQuestions, string userName)
         {
             //Dodanie do bazy danych rozwiązywanego quizu
-            ProceduresModels.AddQuiz(UserId1, false, numOfQuestions, level, -1, -1, -1);
+            ProceduresModels.AddQuiz(false, numOfQuestions, level, -1, -1, -1, userName);
 
             //Przypisujemy do IdRozwiazywanegoQuizu id przed chwila utworzonego quizu
             IdRozwiazywanegoQuizu = ProceduresModels.GetQuizId();

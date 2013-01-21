@@ -16,7 +16,7 @@ namespace WzorceProjektowe.Controllers
         {
             ViewBag.Message = "Statystyki użytkowników";
 
-            return View(new GlobalStatisticsModel());
+            return View(new GlobalStatisticsModel(User.Identity.Name));
         }
 
     }

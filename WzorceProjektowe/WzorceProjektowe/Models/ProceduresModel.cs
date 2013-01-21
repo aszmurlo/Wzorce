@@ -22,12 +22,13 @@ namespace WzorceProjektowe.Models
 
         PatternsEntities patterns = new PatternsEntities();
 
-        public static void AddQuiz(int ID_user1, bool statusq1, int liczba_pytan1, int poziom_trudnosci1, int liczba_poprodp1, int liczba_niepoprodp1, decimal wynik1)
+        public static void AddQuiz(bool statusq1, int liczba_pytan1, int poziom_trudnosci1, int liczba_poprodp1, int liczba_niepoprodp1, decimal wynik1, string userName1)
         {
             using (PatternsEntities ctx = new PatternsEntities())
             {
                 //Create new Emp object
-                Rozwiazane_quizy e = new Rozwiazane_quizy { ID_user = ID_user1, Statusq = statusq1, Liczba_pytan = liczba_pytan1, Liczba_poprodp = liczba_poprodp1, Liczba_niepoprodp = liczba_niepoprodp1, Wynik = wynik1 };
+                int userID = ctx.Uzytkownicy.Where(x => x.Username == userName1).ToList().First().ID_user;
+                Rozwiazane_quizy e = new Rozwiazane_quizy { ID_user = userID, Statusq = statusq1, Liczba_pytan = liczba_pytan1, Liczba_poprodp = liczba_poprodp1, Liczba_niepoprodp = liczba_niepoprodp1, Wynik = wynik1, Poziom_trudnosci = poziom_trudnosci1};
                 //Add to memory
                 ctx.AddToRozwiazane_quizy(e);
                 //Save to database
@@ -468,5 +469,14 @@ namespace WzorceProjektowe.Models
             }
         }
 
+        public static void GradeQuiz(double wynik)
+        {
+            using (PatternsEntities entities = new PatternsEntities())
+            {
+                Rozwiazane_quizy quiz = entities.Rozwiazane_quizy.ToList().Last();
+                quiz.Wynik = Convert.ToDecimal(wynik);
+                entities.SaveChanges();
+            }
+        }
     }
 }
